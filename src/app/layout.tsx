@@ -1,16 +1,15 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
-import { Navbar } from '@/components/layout/Navbar';
+import { Poppins } from 'next/font/google';
+import { Navbar } from '@/components/layout/Navbar/Navbar';
 import './globals.css';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Toaster } from 'sonner';
+import { I18nProvider } from './i18n-provider';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const poppins = Poppins({
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  weight: ['400', '600'],
+  variable: '--font-poppins',
 });
 
 export const metadata: Metadata = {
@@ -20,16 +19,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased pt-20`}
-      >
-        <Navbar />
-        {children}
+    <html lang='en' suppressHydrationWarning>
+      <body className={`${poppins.className} antialiased`}>
+        <I18nProvider>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='system'
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            <Toaster richColors position='bottom-right' />
+            <main className='pt-16'>{children}</main>
+          </ThemeProvider>
+        </I18nProvider>
       </body>
     </html>
   );

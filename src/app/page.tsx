@@ -1,3 +1,15 @@
+'use client';
+import { useAuth } from '@/hooks';
+
 export default function Home() {
-  return <div>xddd</div>;
+  const { user, isAuthenticated } = useAuth();
+
+  return (
+    <div>
+      <h1>{user?.role}</h1>
+      <h1>{user?.email}</h1>
+      <h1>{user?.sub}</h1>
+      <h2>{isAuthenticated}</h2>
+    </div>
+  );
 }
