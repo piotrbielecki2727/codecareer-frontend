@@ -12,9 +12,8 @@ import {
   type FieldPath,
   type FieldValues,
 } from "react-hook-form"
-
+import { ShadcnLabel as Label } from '@/components/ui/components/Label/base';
 import { cn } from "@/lib/utils"
-import { Label } from "@/components/ui/components/Label/base"
 
 const Form = FormProvider
 

@@ -1,7 +1,9 @@
 {
   "polish": "Polish",
   "english": "English",
-  "chooseAppLanguage": "Choose app language:",
+  "chooseLanguage": "Choose language:",
+  "currency": "Currency",
+  "theme": "Theme",
   "signIn": "Sign in",
   "signUp": "Sign up",
   "logout": "Logout",
@@ -36,5 +38,22 @@
   "passwordPlaceholder": "At least 8 characters",
   "signedInSuccessfully": "Signed in successfully.",
   "accountCreated": "Account created. Please sign in.",
-  "somethingWentWrong": "Something went wrong. Try again."
+  "somethingWentWrong": "Something went wrong. Try again.",
+  "englishLanguage": "English",
+  "germanLanguage": "German",
+  "frenchLanguage": "French",
+  "spanishLanguage": "Spanish",
+  "italianLanguage": "Italian",
+  "employment": {
+    "fullTime": "Full-time",
+    "partTime": "Part-time",
+    "contract": "Contract",
+    "internship": "Internship / Trainee",
+    "b2b": "B2B"
+  },
+  "workMode": {
+    "remote": "Remote",
+    "hybrid": "Hybrid",
+    "office": "Office"
+  }
 }

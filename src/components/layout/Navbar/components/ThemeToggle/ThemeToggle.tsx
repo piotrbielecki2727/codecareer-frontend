@@ -7,7 +7,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/shadcnComponents/dropdown-menu';
+} from '@/components/ui/components/Dropdown/base';
 import { Button } from '@/components/ui';
 
 export const ThemeToggle = () => {

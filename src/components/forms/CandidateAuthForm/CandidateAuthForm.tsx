@@ -42,6 +42,7 @@ export const CandidateAuthForm = ({ mode }: Props) => {
       if (isLogin) {
         const res = await login(data as ISignInForm);
         toast.success(t('signedInSuccessfully'));
+        console.log(res.user);
         setUser(res.user);
         router.push(ROUTES.HOME);
       } else {
@@ -51,8 +52,7 @@ export const CandidateAuthForm = ({ mode }: Props) => {
         router.push(ROUTES.AUTH.CANDIDATE_SIGN_IN.PATH);
       }
     } catch (err: any) {
-      const message =
-        err?.response?.data?.message || t('somethingWentWrong');
+      const message = err?.response?.data?.message || t('somethingWentWrong');
       toast.error(message);
     }
   };

@@ -1,7 +1,9 @@
 {
   "polish": "Polski",
   "english": "Angielski",
-  "chooseAppLanguage": "Wybierz język aplikacji:",
+  "chooseLanguage": "Wybierz język:",
+  "currency": "Waluta",
+  "theme": "Motyw",
   "signIn": "Zaloguj się",
   "signUp": "Zarejestruj się",
   "logout": "Wyloguj się",
@@ -36,5 +38,22 @@
   "passwordPlaceholder": "Co najmniej 8 znaków",
   "signedInSuccessfully": "Zalogowano pomyślnie.",
   "accountCreated": "Konto zostało utworzone. Zaloguj się.",
-  "somethingWentWrong": "Coś poszło nie tak. Spróbuj ponownie."
+  "somethingWentWrong": "Coś poszło nie tak. Spróbuj ponownie.",
+  "englishLanguage": "Angielski",
+  "germanLanguage": "Niemiecki",
+  "frenchLanguage": "Francuski",
+  "spanishLanguage": "Hiszpański",
+  "italianLanguage": "Włoski",
+  "employment": {
+    "fullTime": "Pełny etat",
+    "partTime": "Część etatu",
+    "contract": "Kontrakt",
+    "internship": "Staż / Praktyka",
+    "b2b": "B2B"
+  },
+  "workMode": {
+    "remote": "Zdalna",
+    "hybrid": "Hybrydowa",
+    "office": "Stacjonarna"
+  }
 }

@@ -5,7 +5,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from '@/components/ui/shadcnComponents/dropdown-menu';
+} from '@/components/ui/components/Dropdown/base';
 import { Button } from '@/components/ui';
 import { LogOut, User2 } from 'lucide-react';
 import { logout } from '@/lib/api/auth';

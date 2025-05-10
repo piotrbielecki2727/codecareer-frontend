@@ -14,4 +14,5 @@ export const ROUTES = {
       PATH: '/auth/employer/signUp',
     },
   },
+  WELCOME: '/welcome',
 };

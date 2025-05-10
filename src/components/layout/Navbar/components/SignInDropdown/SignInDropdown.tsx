@@ -6,7 +6,7 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from '@/components/ui/shadcnComponents/dropdown-menu';
+} from '@/components/ui/components/Dropdown/base';
 import { Separator } from '@/components/ui/shadcnComponents/separator';
 import { ChevronUp, ChevronDown } from 'lucide-react';
 import { signInSections } from './constants';
@@ -22,14 +22,16 @@ export const SignInDropdown = () => {
       <DropdownMenuTrigger asChild>
         <Button
           type='button'
-          className='group bg-gradient-to-r from-purple-600 to-blue-400 hover:opacity-90 text-white rounded-full px-8 py-4 flex items-center justify-center align-middle'
+          className='group bg-gradient-to-r from-purple-600 to-blue-400 hover:opacity-90 text-white rounded-full py-4 flex items-center justify-between align-middle min-w-[120px]'
         >
-          {t('signIn')}
-          {open ? (
-            <ChevronUp className='ml-2 w-4 h-4' />
-          ) : (
-            <ChevronDown className='ml-2 w-4 h-4' />
-          )}
+          <>
+            <span>{t('signIn')}</span>
+            {open ? (
+              <ChevronUp className='ml-2 w-4 h-4' />
+            ) : (
+              <ChevronDown className='ml-2 w-4 h-4' />
+            )}
+          </>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

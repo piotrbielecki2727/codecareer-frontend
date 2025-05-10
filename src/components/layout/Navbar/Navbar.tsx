@@ -2,13 +2,7 @@
 
 import Link from 'next/link';
 import React from 'react';
-import {
-  CurrencyToggle,
-  LanguageSwitcher,
-  SignInDropdown,
-  ThemeToggle,
-  UserDropdown,
-} from './components';
+import { SettingsDropdown, SignInDropdown, UserDropdown } from './components';
 import { useAuth } from '@/hooks';
 
 export const Navbar = () => {
@@ -24,10 +18,8 @@ export const Navbar = () => {
       </Link>
       <div className='flex gap-6 justify-center items-center'>
         {!isAuthenticated && <SignInDropdown />}
-        <CurrencyToggle />
-        <LanguageSwitcher />
-        <ThemeToggle />
         {isAuthenticated && <UserDropdown />}
+        <SettingsDropdown />
       </div>
     </div>
   );

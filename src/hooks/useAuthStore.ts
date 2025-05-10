@@ -1,10 +1,10 @@
-// hooks/useAuthStore.ts
 import { create } from 'zustand';
 
 type User = {
   sub: string;
   email: string;
   role: 'CANDIDATE' | 'EMPLOYER';
+  firstLogin: boolean;
 };
 
 type AuthState = {

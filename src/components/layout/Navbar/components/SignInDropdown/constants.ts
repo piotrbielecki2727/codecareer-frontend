@@ -1,13 +1,15 @@
 import { ROUTES } from '@/routes';
 import { Briefcase, User } from 'lucide-react';
 
+import { TFunctionKeys } from '@/types/i18n.types';
+
 export type SignInLink = {
   href: string;
-  label: string;
+  label: TFunctionKeys;
 };
 
 export type SignInSection = {
-  title: string;
+  title: TFunctionKeys;
   icon: React.ElementType;
   links: SignInLink[];
 };
