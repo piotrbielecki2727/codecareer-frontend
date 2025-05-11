@@ -55,5 +55,6 @@
     "remote": "Zdalna",
     "hybrid": "Hybrydowa",
     "office": "Stacjonarna"
-  }
+  },
+  "postAJobOffer": "Dodaj ofertę pracy"
 }

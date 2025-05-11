@@ -1,15 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface KotlinSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const KotlinSVG: React.FC<KotlinSVGProps> = ({
+export const KotlinSVG: React.FC<SVGIconProps> = ({
   className = '',
-  width = 24,
+  width = 12,
   height = 24,
 }) => {
   return (

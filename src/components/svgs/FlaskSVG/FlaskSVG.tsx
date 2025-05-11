@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface FlaskSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const FlaskSVG: React.FC<FlaskSVGProps> = ({
+export const FlaskSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

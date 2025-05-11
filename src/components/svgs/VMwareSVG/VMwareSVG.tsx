@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface VMwareSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const VMwareSVG: React.FC<VMwareSVGProps> = ({
+export const VMwareSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

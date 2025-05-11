@@ -20,11 +20,11 @@ export const signInSections: SignInSection[] = [
     icon: User,
     links: [
       {
-        href: ROUTES.AUTH.CANDIDATE_SIGN_IN.PATH,
+        href: ROUTES.GENERAL.AUTH_CANDIDATE_SIGN_IN,
         label: 'signInCandidate',
       },
       {
-        href: ROUTES.AUTH.CANDIDATE_SIGN_UP.PATH,
+        href: ROUTES.GENERAL.AUTH_CANDIDATE_SIGN_UP,
         label: 'signUpCandidate',
       },
     ],
@@ -34,11 +34,11 @@ export const signInSections: SignInSection[] = [
     icon: Briefcase,
     links: [
       {
-        href: ROUTES.AUTH.EMPLOYER_SIGN_IN.PATH,
+        href: ROUTES.GENERAL.AUTH_EMPLOYER_SIGN_IN,
         label: 'signInEmployer',
       },
       {
-        href: ROUTES.AUTH.EMPLOYER_SIGN_UP.PATH,
+        href: ROUTES.GENERAL.AUTH_EMPLOYER_SIGN_UP,
         label: 'signUpEmployer',
       },
     ],

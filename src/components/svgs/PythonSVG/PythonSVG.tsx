@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface PythonSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const PythonSVG: React.FC<PythonSVGProps> = ({
+export const PythonSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

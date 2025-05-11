@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface AnsibleSVGProps {
+export interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const AnsibleSVG: React.FC<AnsibleSVGProps> = ({
+export const AnsibleSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface LinuxTuxSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const LinuxTuxSVG: React.FC<LinuxTuxSVGProps> = ({
+export const LinuxTuxSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

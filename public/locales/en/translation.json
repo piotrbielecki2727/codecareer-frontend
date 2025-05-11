@@ -55,5 +55,6 @@
     "remote": "Remote",
     "hybrid": "Hybrid",
     "office": "Office"
-  }
+  },
+  "postAJobOffer": "Post a job offer"
 }

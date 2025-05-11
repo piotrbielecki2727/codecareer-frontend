@@ -46,14 +46,16 @@ export const EmployerAuthForm = ({ mode }: Props) => {
         const res = await login(data as IEmployerSignInForm);
         toast.success(t('signedInSuccessfully'));
         setUser(res.user);
-        router.push(ROUTES.HOME);
+        router.push(ROUTES.GENERAL.HOME);
       } else {
-        const res = await registerEmployer(data as IEmployerSignUpForm);
+        await registerEmployer(data as IEmployerSignUpForm);
         toast.success(t('accountCreated'));
-        router.push(ROUTES.AUTH.EMPLOYER_SIGN_IN.PATH);
+        router.push(ROUTES.GENERAL.AUTH_EMPLOYER_SIGN_IN);
       }
-    } catch (err: any) {
-      const message = err?.response?.data?.message || t('somethingWentWrong');
+    } catch (err: unknown) {
+      const axiosError = err as { response?: { data?: { message?: string } } };
+      const message =
+        axiosError?.response?.data?.message || t('somethingWentWrong');
       toast.error(message);
     }
   };
@@ -75,12 +77,12 @@ export const EmployerAuthForm = ({ mode }: Props) => {
     ? {
         question: t('dontHaveAccount'),
         action: t('signUp'),
-        href: ROUTES.AUTH.EMPLOYER_SIGN_UP.PATH,
+        href: ROUTES.GENERAL.AUTH_EMPLOYER_SIGN_UP,
       }
     : {
         question: t('alreadyHaveAccount'),
         action: t('signIn'),
-        href: ROUTES.AUTH.EMPLOYER_SIGN_IN.PATH,
+        href: ROUTES.GENERAL.AUTH_EMPLOYER_SIGN_IN,
       };
 
   return (

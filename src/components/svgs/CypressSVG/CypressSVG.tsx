@@ -1,13 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface CypressSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const CypressSVG: React.FC<CypressSVGProps> = ({
+
+export const CypressSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

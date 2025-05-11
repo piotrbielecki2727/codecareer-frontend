@@ -1,13 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface BashSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const BashSVG: React.FC<BashSVGProps> = ({
+
+export const BashSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

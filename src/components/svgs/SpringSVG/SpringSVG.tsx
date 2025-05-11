@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface SpringSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const SpringSVG: React.FC<SpringSVGProps> = ({
+export const SpringSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

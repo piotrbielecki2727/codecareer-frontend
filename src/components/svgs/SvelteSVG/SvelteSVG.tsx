@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface SvelteSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const SvelteSVG: React.FC<SvelteSVGProps> = ({
+export const SvelteSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

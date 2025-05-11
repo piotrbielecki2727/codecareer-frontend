@@ -1,27 +1,34 @@
 'use client';
-import { WelcomeDialog } from '@/components';
+import { Combobox } from '@/components';
 import { useAuth } from '@/hooks';
-import { useEffect, useState } from 'react';
+import { technologies } from '@/lib/data/technologies';
+import { useState } from 'react';
 
 export default function Home() {
   const { user, isAuthenticated } = useAuth();
-  const [showDialog, setShowDialog] = useState(false);
+  const [multi, setMulti] = useState<string[]>([]);
+
+  const handleMultiChange = (values: (string | number)[]) => {
+    setMulti(values.map((value) => String(value)));
+  };
 
   console.log(user?.firstLogin);
   console.log(user?.role);
 
-  useEffect(() => {
-    if (user?.firstLogin) {
-      setShowDialog(true);
-    }
-  }, [user]);
   return (
     <div>
       <h1>{user?.role}</h1>
       <h1>{user?.email}</h1>
       <h1>{user?.sub}</h1>
       <h2>{isAuthenticated}</h2>
-      <WelcomeDialog open={showDialog} onClose={() => setShowDialog(false)} />
+      <Combobox
+        className='w-[700px]'
+        popoverClassName='w-[700px]'
+        multiSelect
+        selected={multi}
+        onChange={handleMultiChange}
+        options={technologies({ width: 12, height: 12 })}
+      />
     </div>
   );
 }

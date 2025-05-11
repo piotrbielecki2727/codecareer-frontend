@@ -9,26 +9,24 @@ import {
 } from 'react-hook-form';
 import { Dropdown, DropdownOption } from '@/components/ui';
 
-type DropdownControlProps<
-  TFieldValues extends FieldValues,
-  TOption extends string | number
-> = {
+type DropdownControlProps<TFieldValues extends FieldValues> = {
   label: string;
   placeholder?: string;
-  options: DropdownOption<TOption>[];
+  options: DropdownOption[];
+  multiple?: boolean;
+  showIconsInTrigger?: boolean;
 } & UseControllerProps<TFieldValues, FieldPath<TFieldValues>>;
 
-export const DropdownControl = <
-  TFieldValues extends FieldValues,
-  TOption extends string | number
->({
+export const DropdownControl = <TFieldValues extends FieldValues>({
   name,
   control,
   rules,
   label,
   placeholder,
   options,
-}: DropdownControlProps<TFieldValues, TOption>) => {
+  multiple = false,
+  showIconsInTrigger = false,
+}: DropdownControlProps<TFieldValues>) => {
   const {
     field: { value, onChange },
     fieldState: { error },
@@ -43,11 +41,13 @@ export const DropdownControl = <
       <label htmlFor={name} className='block text-sm font-medium'>
         {label}
       </label>
-      <Dropdown<TOption>
+      <Dropdown
         options={options}
-        value={value as TOption}
+        value={value}
         onChange={onChange}
         placeholder={placeholder}
+        multiple={multiple}
+        showIconsInTrigger={showIconsInTrigger}
       />
       {error && <p className='text-sm text-red-500 mt-1'>{error.message}</p>}
     </div>

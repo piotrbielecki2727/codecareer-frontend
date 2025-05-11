@@ -1,18 +1,19 @@
 export const ROUTES = {
-  HOME: '/',
-  AUTH: {
-    CANDIDATE_SIGN_IN: {
-      PATH: '/auth/candidate/signIn',
-    },
-    CANDIDATE_SIGN_UP: {
-      PATH: '/auth/candidate/signUp',
-    },
-    EMPLOYER_SIGN_IN: {
-      PATH: '/auth/employer/signIn',
-    },
-    EMPLOYER_SIGN_UP: {
-      PATH: '/auth/employer/signUp',
-    },
+  GENERAL: {
+    HOME: '/',
+    WELCOME: '/welcome',
+    AUTH_CANDIDATE_SIGN_IN: '/auth/candidate/signIn',
+    AUTH_CANDIDATE_SIGN_UP: '/auth/candidate/signUp',
+    AUTH_EMPLOYER_SIGN_IN: '/auth/employer/signIn',
+    AUTH_EMPLOYER_SIGN_UP: '/auth/employer/signUp',
   },
-  WELCOME: '/welcome',
+  EMPLOYER: {
+    POST_A_JOB: '/employer/postAJob',
+  },
+  CANDIDATE: {
+    APPLY_FOR_JOB: '/candidate/applyForJob',
+  },
+  ADMIN: {
+    USER_MANAGEMENT: '/admin/userManagement',
+  },
 };

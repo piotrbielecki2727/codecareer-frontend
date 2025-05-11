@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface TableauSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const TableauSVG: React.FC<TableauSVGProps> = ({
+export const TableauSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

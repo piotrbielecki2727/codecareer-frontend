@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface SwiftSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const SwiftSVG: React.FC<SwiftSVGProps> = ({
+export const SwiftSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

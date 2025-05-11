@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface SAPSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const SAPSVG: React.FC<SAPSVGProps> = ({
+export const SAPSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

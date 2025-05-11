@@ -17,3 +17,9 @@ export enum AuthPageMode {
   Candidate = 'candidate',
   Employer = 'employer',
 }
+
+export enum Role {
+  CANDIDATE = 'CANDIDATE',
+  EMPLOYER = 'EMPLOYER',
+  ADMIN = 'ADMIN',
+}

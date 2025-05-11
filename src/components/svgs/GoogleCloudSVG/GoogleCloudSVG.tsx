@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface GoogleCloudSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const GoogleCloudSVG: React.FC<GoogleCloudSVGProps> = ({
+export const GoogleCloudSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,

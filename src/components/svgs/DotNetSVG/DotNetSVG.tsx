@@ -1,20 +1,20 @@
 import React from 'react';
 import Image from 'next/image';
 
-interface DotNetSVGProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;
 }
 
-export const DotNetSVG: React.FC<DotNetSVGProps> = ({
+export const DotNetSVG: React.FC<SVGIconProps> = ({
   className = '',
   width = 24,
   height = 24,
 }) => {
   return (
     <Image
-      src='/svgs/dotnett.svg'
+      src='/svgs/dotnet.svg'
       alt='.NET'
       className={className}
       width={Number(width)}
