@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/components/Dropdown/base';
 import { Button } from '@/components/ui';
-import { LogOut, User2 } from 'lucide-react';
+import { ChevronDown, LogOut, User2 } from 'lucide-react';
 import { logout } from '@/lib/api/auth';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
@@ -30,7 +30,7 @@ export const UserDropdown = () => {
   };
 
   return (
-    <DropdownMenu open={open} onOpenChange={setOpen}>
+    <DropdownMenu modal={false} open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <Button
           type='button'
@@ -38,6 +38,7 @@ export const UserDropdown = () => {
           className='rounded-full px-4 py-2 flex items-center gap-2'
         >
           <User2 className='w-5 h-5' />
+          <ChevronDown className='w-4 h-4' />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent

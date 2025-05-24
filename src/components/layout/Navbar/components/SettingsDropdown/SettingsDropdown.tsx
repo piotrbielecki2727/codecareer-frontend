@@ -53,7 +53,7 @@ export const SettingsDropdown = () => {
   const { setTheme, theme } = useTheme();
 
   return (
-    <DropdownMenu>
+    <DropdownMenu modal={false}>
       <DropdownMenuTrigger asChild>
         <Button variant='outline' className='px-4 py-2 flex items-center gap-2'>
           <Settings className='w-4 h-4' />
@@ -61,6 +61,10 @@ export const SettingsDropdown = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end' className='min-w-[220px] p-2'>
+        <div className='flex items-center gap-2 px-2 py-2 text-sm '>
+          {t('settings')}
+        </div>
+        <div className='bg-gray-100 h-[1px]'></div>
         <div className='flex items-center gap-2 px-2 py-2 text-sm text-muted-foreground'>
           <Globe className='w-4 h-4' />
           {t('chooseLanguage')}
@@ -77,7 +81,7 @@ export const SettingsDropdown = () => {
             {i18n.language === code && <Check className='w-4 h-4 opacity-70' />}
           </DropdownMenuItem>
         ))}
-
+        <div className='bg-gray-100 h-[1px]'></div>
         <div className='flex items-center gap-2 px-2 py-2 mt-3 text-sm text-muted-foreground'>
           <DollarSign className='w-4 h-4' />
           {t('currency')}
@@ -94,7 +98,7 @@ export const SettingsDropdown = () => {
             {currency === value && <Check className='w-4 h-4 opacity-70' />}
           </DropdownMenuItem>
         ))}
-
+        <div className='bg-gray-100 h-[1px]'></div>
         <div className='flex items-center gap-2 px-2 py-2 mt-3 text-sm text-muted-foreground'>
           <Wand className='w-4 h-4' />
           {t('theme')}

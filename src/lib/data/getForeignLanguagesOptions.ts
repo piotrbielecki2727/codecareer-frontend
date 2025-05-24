@@ -11,4 +11,5 @@ export const getForeignLanguagesOptions = (t: TFunction): ForeignLanguage[] => [
   { label: t('frenchLanguage'), value: 'french' },
   { label: t('spanishLanguage'), value: 'spanish' },
   { label: t('italianLanguage'), value: 'italian' },
+  { label: t('ukrainianLanguage'), value: 'ukrainian' },
 ];

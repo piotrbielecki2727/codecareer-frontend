@@ -1,7 +1,6 @@
 export const ROUTES = {
   GENERAL: {
     HOME: '/',
-    WELCOME: '/welcome',
     AUTH_CANDIDATE_SIGN_IN: '/auth/candidate/signIn',
     AUTH_CANDIDATE_SIGN_UP: '/auth/candidate/signUp',
     AUTH_EMPLOYER_SIGN_IN: '/auth/employer/signIn',

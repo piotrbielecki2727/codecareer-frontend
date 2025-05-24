@@ -18,7 +18,7 @@ export const SignInDropdown = () => {
   const { t } = useTranslation();
 
   return (
-    <DropdownMenu open={open} onOpenChange={setOpen}>
+    <DropdownMenu modal={false} open={open} onOpenChange={setOpen}>
       <DropdownMenuTrigger asChild>
         <Button
           type='button'

@@ -41,7 +41,10 @@ export const Input = ({
           placeholder={placeholder}
           value={value}
           onChange={onChange}
-          className={cn(isPassword && 'pr-10')}
+          className={cn(
+            'bg-white dark:bg-neutral-900 hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out',
+            isPassword && 'pr-10'
+          )}
         />
         {isPassword && (
           <Button

@@ -27,7 +27,13 @@ export const Textarea = ({
       <ShadcnTextarea
         id={id}
         placeholder={placeholder}
-        className={cn('min-h-[6rem] resize-y', className)}
+        className={cn(
+          'min-h-[6rem] resize-y',
+          'bg-white hover:bg-muted',
+          'dark:bg-neutral-900 dark:hover:bg-neutral-800',
+          'transition-colors duration-400 ease-in-out',
+          className
+        )}
         {...props}
       />
     </div>

@@ -18,6 +18,7 @@ import {
 import { Badge } from '@/components/ui/shadcnComponents/badge';
 import { cn } from '@/lib/utils';
 import { Button } from '../Button';
+import { useTranslation } from 'react-i18next';
 
 export interface Option {
   label: string;
@@ -45,6 +46,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
   popoverClassName,
 }) => {
   const [open, setOpen] = React.useState(false);
+  const { t } = useTranslation();
 
   const handleSelect = (value: string) => {
     if (multiSelect) {
@@ -81,6 +83,8 @@ export const Combobox: React.FC<ComboboxProps> = ({
         <div
           className={cn(
             'border rounded-md px-2 py-1 min-h-[42px] w-full cursor-pointer text-center flex items-center justify-between',
+            'bg-white dark:bg-neutral-900',
+            'hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out',
             className
           )}
         >
@@ -116,7 +120,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
               )}
             </div>
 
-            <div className='flex items-center gap-1 pt-1'>
+            <div className='flex items-center gap-1'>
               {selected.length > 0 && (
                 <Button
                   type='button'
@@ -144,16 +148,18 @@ export const Combobox: React.FC<ComboboxProps> = ({
         )}
       >
         <Command>
-          <CommandInput placeholder='Search...' />
+          <CommandInput placeholder={`${t('search')}...`} />
           <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandEmpty>{t('noResultsFound')}</CommandEmpty>
             <CommandGroup>
               {filteredOptions.map((option) => (
                 <CommandItem
                   key={option.value}
                   onSelect={() => handleSelect(option.value)}
                 >
-                  {option.icon && <span className='mr-2'>{option.icon}</span>}
+                  <span className='w-4 h-4 flex items-center justify-center'>
+                    {option.icon}
+                  </span>
                   {option.label}
                   {multiSelect && (
                     <Check

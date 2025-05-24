@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-export interface SVGIconProps {
+interface SVGIconProps {
   className?: string;
   width?: number | string;
   height?: number | string;

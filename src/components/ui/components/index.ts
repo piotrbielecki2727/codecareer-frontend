@@ -4,3 +4,6 @@ export * from './Button';
 export * from './Dropdown';
 export * from './Textarea';
 export * from './Combobox';
+export * from './Switch';
+export * from './InputWithCounter';
+export * from './CollapsibleSection';

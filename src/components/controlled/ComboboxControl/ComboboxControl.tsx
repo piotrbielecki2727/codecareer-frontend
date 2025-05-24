@@ -10,6 +10,7 @@ interface ComboboxControlProps<T extends FieldValues>
   label: string;
   options: Option[];
   multiSelect?: boolean;
+  placeholder?: string;
 }
 
 export const ComboboxControl = <T extends FieldValues>({
@@ -19,6 +20,7 @@ export const ComboboxControl = <T extends FieldValues>({
   label,
   options,
   multiSelect = false,
+  placeholder,
 }: ComboboxControlProps<T>) => {
   const {
     field: { value, onChange },
@@ -26,13 +28,14 @@ export const ComboboxControl = <T extends FieldValues>({
   } = useController({ control, name, rules });
 
   return (
-    <div className='space-y-2'>
+    <div className='space-y-2 flex flex-col'>
       <label className='text-sm font-medium'>{label}</label>
       <Combobox
         options={options}
         selected={value ?? []}
         onChange={onChange}
         multiSelect={multiSelect}
+        placeholder={placeholder}
       />
       {error && <p className='text-sm text-red-500 mt-1'>{error.message}</p>}
     </div>

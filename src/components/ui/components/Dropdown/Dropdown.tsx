@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from 'react';
-import { Check } from 'lucide-react';
+import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '../Button';
 import { cn } from '@/lib/utils';
 import {
@@ -28,21 +28,18 @@ interface BaseProps {
   showIconsInTrigger?: boolean;
 }
 
-// 👇 SINGLE SELECT
 interface SingleSelectProps extends BaseProps {
   multiple?: false;
   value?: string | number;
   onChange?: (value: string | number) => void;
 }
 
-// 👇 MULTI SELECT
 interface MultiSelectProps extends BaseProps {
   multiple: true;
   value: (string | number)[];
   onChange?: (value: (string | number)[]) => void;
 }
 
-// 👇 UNION
 type DropdownProps = SingleSelectProps | MultiSelectProps;
 
 export const Dropdown = ({
@@ -57,25 +54,29 @@ export const Dropdown = ({
   multiple = false,
   showIconsInTrigger = false,
 }: DropdownProps): React.ReactElement => {
-  // Use type guards to handle the union type
-  const selected = multiple
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const selected: DropdownOption[] | DropdownOption | undefined = multiple
     ? options.filter((opt) => Array.isArray(value) && value.includes(opt.value))
     : options.find((opt) => opt.value === value);
 
   const isSelected = (val: string | number): boolean => {
-    if (multiple) {
-      return Array.isArray(value) && value.includes(val);
-    }
-    return val === value;
+    return multiple
+      ? Array.isArray(value) && value.includes(val)
+      : val === value;
   };
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild disabled={disabled}>
+    <DropdownMenu modal={false} open={isOpen} onOpenChange={setIsOpen}>
+      <DropdownMenuTrigger
+        className='mt-1 bg-white dark:bg-neutral-900 hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out'
+        asChild
+        disabled={disabled}
+      >
         <Button
           variant='outline'
           className={cn(
-            'justify-between w-full text-base px-4 py-2',
+            'justify-between w-full text-base px-4 py-2 outline-none focus-visible:outline-none hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out',
             triggerClassName
           )}
         >
@@ -94,19 +95,29 @@ export const Dropdown = ({
                   </span>
                 ))
               ) : (
-                placeholder
+                <span className='text-muted-foreground text-sm'>
+                  {placeholder}
+                </span>
               )
-            ) : selected ? (
-              <span className='flex items-center gap-1'>
-                {showIconsInTrigger &&
-                  !Array.isArray(selected) &&
-                  selected.icon && (
-                    <span className='w-4 h-4'>{selected.icon}</span>
-                  )}
-                {!Array.isArray(selected) && selected.label}
+            ) : selected && !Array.isArray(selected) ? (
+              <span className='flex items-center gap-1 text-sm'>
+                {showIconsInTrigger && selected.icon && (
+                  <span className='w-4 h-4'>{selected.icon}</span>
+                )}
+                {selected.label}
               </span>
             ) : (
-              placeholder
+              <span className='text-muted-foreground text-sm'>
+                {placeholder}
+              </span>
+            )}
+          </span>
+
+          <span className='ml-auto pl-2'>
+            {isOpen ? (
+              <ChevronUp className='w-4 h-4 text-muted-foreground' />
+            ) : (
+              <ChevronDown className='w-4 h-4 text-muted-foreground' />
             )}
           </span>
         </Button>
@@ -115,7 +126,7 @@ export const Dropdown = ({
       <DropdownMenuContent
         sideOffset={4}
         className={cn(
-          'min-w-0 w-[var(--radix-dropdown-menu-trigger-width)] p-1 shadow-md border rounded-md bg-white z-50',
+          'min-w-0 w-[var(--radix-dropdown-menu-trigger-width)] p-1 border rounded-md z-50',
           contentClassName
         )}
       >
@@ -131,7 +142,6 @@ export const Dropdown = ({
                     const nextValue = selected
                       ? value.filter((v) => v !== opt.value)
                       : [...value, opt.value];
-                    // For multi-select, we need to cast onChange
                     (
                       onChange as
                         | ((value: (string | number)[]) => void)
@@ -139,7 +149,6 @@ export const Dropdown = ({
                     )?.(nextValue);
                   }
                 } else {
-                  // For single select, we can safely cast onChange
                   (
                     onChange as ((value: string | number) => void) | undefined
                   )?.(opt.value);

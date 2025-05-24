@@ -47,7 +47,7 @@ export const config = {
     '/candidate/:path*',
     '/admin/:path*',
 
-    '/((?!api|_next/static|_next/image|favicon.ico|assets|locales).*)',
+    '/((?!api|_next/static|_next/image|favicon.ico|assets|locales|svgs|public).*)',
   ],
 };
 

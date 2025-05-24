@@ -10,11 +10,8 @@ import {
 import { Textarea } from '@/components/ui';
 
 type TextareaControlProps<TFieldValues extends FieldValues> = {
-  /** tekst labelki */
   label: string;
-  /** placeholder */
   placeholder?: string;
-  /** liczba wierszy */
   rows?: number;
 } & UseControllerProps<TFieldValues, FieldPath<TFieldValues>>;
 
