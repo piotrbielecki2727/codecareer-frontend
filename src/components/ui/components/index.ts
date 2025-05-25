@@ -7,3 +7,7 @@ export * from './Combobox';
 export * from './Switch';
 export * from './InputWithCounter';
 export * from './CollapsibleSection';
+export * from './CompanyLogoUploader';
+export * from './MarkdownEditor';
+export * from './Popover';
+export * from './DotsLevel';

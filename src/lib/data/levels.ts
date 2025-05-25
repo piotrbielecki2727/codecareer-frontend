@@ -1,12 +1,7 @@
-import { ReactNode } from 'react';
+import { IOption } from '@/types/interfaces';
 
-export interface Level {
-  label: string;
-  value: string;
-  icon?: ReactNode;
-}
 
-export const levels: Level[] = [
+export const levels: IOption[] = [
   { label: 'Intern', value: 'intern' },
   { label: 'Junior', value: 'junior' },
   { label: 'Mid', value: 'mid' },

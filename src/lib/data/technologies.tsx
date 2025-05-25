@@ -44,15 +44,11 @@ import {
   GraphQLSVG,
   AnsibleSVG,
 } from '@/components/svgs';
-export interface TechnologyOption {
-  label: string;
-  value: string;
-  icon?: React.ReactNode;
-}
+import { IOption } from '@/types/interfaces';
 
 export const technologies = (
   iconProps?: SVGProps<SVGSVGElement>
-): TechnologyOption[] => [
+): IOption[] => [
   {
     label: 'JavaScript',
     value: 'javascript',

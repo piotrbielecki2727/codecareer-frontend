@@ -1,5 +1,11 @@
-import { Control } from 'react-hook-form';
-import { InputControl, TextareaControl } from '@/components';
+'use client';
+
+import { Control, useFormContext } from 'react-hook-form';
+import {
+  CompanyLogoUploader,
+  InputControl,
+  MarkdownEditor,
+} from '@/components';
 import { InputType } from '@/types';
 import { JobFormValues } from '../../schema';
 import { PostJobFormFields } from '../../types';
@@ -11,12 +17,14 @@ type Props = {
 
 export const GeneralInfo = ({ control }: Props) => {
   const { t } = useTranslation();
+  const { setValue } = useFormContext<JobFormValues>();
 
   return (
     <section className='space-y-6'>
       <h2 className='text-xl font-semibold text-center mb-4 dark:text-white'>
         {t('postJob.generalInfo')}
       </h2>
+
       <InputControl
         name={PostJobFormFields.jobTitle}
         control={control}
@@ -24,6 +32,7 @@ export const GeneralInfo = ({ control }: Props) => {
         placeholder={t('postJob.jobTitlePlaceholder')}
         type={InputType.Text}
       />
+
       <InputControl
         name={PostJobFormFields.companyName}
         control={control}
@@ -31,12 +40,15 @@ export const GeneralInfo = ({ control }: Props) => {
         placeholder={t('postJob.companyNamePlaceholder')}
         type={InputType.Text}
       />
-      <TextareaControl
+      <CompanyLogoUploader
+        onUpload={(url) => setValue(PostJobFormFields.companyLogoUrl, url)}
+      />
+      <MarkdownEditor
         name={PostJobFormFields.companyDescription}
         control={control}
         label={t('postJob.companyDescription')}
         placeholder={t('postJob.companyDescriptionPlaceholder')}
-        rows={5}
+        rows={10}
       />
       <InputControl
         name={PostJobFormFields.vacancies}

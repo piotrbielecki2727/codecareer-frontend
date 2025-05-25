@@ -1,11 +1,9 @@
+import { IOption } from '@/types/interfaces';
 import { TFunction } from 'i18next';
 
-export interface ForeignLanguage {
-  label: string;
-  value: string;
-}
 
-export const getForeignLanguagesOptions = (t: TFunction): ForeignLanguage[] => [
+
+export const getForeignLanguagesOptions = (t: TFunction): IOption[] => [
   { label: t('englishLanguage'), value: 'english' },
   { label: t('germanLanguage'), value: 'german' },
   { label: t('frenchLanguage'), value: 'french' },

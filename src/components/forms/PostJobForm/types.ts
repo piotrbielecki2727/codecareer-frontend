@@ -2,6 +2,7 @@ export const PostJobFormFields = {
   jobTitle: 'jobTitle',
   companyName: 'companyName',
   companyDescription: 'companyDescription',
+  companyLogoUrl: 'companyLogoUrl',
   level: 'level',
   specialization: 'specialization',
   contractType: 'contractType',

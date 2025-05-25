@@ -118,6 +118,36 @@
     "fullAddress": "Full address",
     "selectCity": "Select city",
     "address": "Office address",
-    "exampleAddress": "Plac Defilad 1, 00-901 Warsaw"
+    "exampleAddress": "Plac Defilad 1, 00-901 Warsaw",
+    "edit": "Edit",
+    "preview": "Preview",
+    "formatting": "Formatting:",
+    "bold": "bold",
+    "italic": "italic",
+    "heading": "Heading",
+    "subheading": "Subheading",
+    "list": "List",
+    "orderedList": "Ordered list",
+    "noContentPreview": "No content to display",
+    "companyLogo": {
+      "label": "Company Logo",
+      "preview": "Company logo preview",
+      "instructions": "Upload your company logo (PNG or JPEG, max 500x500px, max 1MB)",
+      "selectFile": "Select file",
+      "uploading": "Uploading...",
+      "errorFormat": "Only PNG and JPEG files are allowed",
+      "errorSize": "File size must be less than 1MB",
+      "errorDimensions": "Image dimensions must be 500x500px or less",
+      "errorUpload": "Failed to upload image",
+      "errorLoading": "Failed to load image"
+    },
+    "technologiesLevels": {
+      "niceToHave": "Nice to have",
+      "junior": "Junior",
+      "regular": "Regular",
+      "advanced": "Advanced",
+      "senior": "Senior"
+    },
+    "chooseLevelForEveryTechnology": "Choose level for every technology"
   }
 }

@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import {
   Shield,
   Server,
@@ -14,14 +13,11 @@ import {
   Code2,
   Layers,
 } from 'lucide-react';
+import { IOption } from '@/types/interfaces';
 
-export interface Specialization {
-  label: string;
-  value: string;
-  icon: ReactNode;
-}
 
-export const specializations: Specialization[] = [
+
+export const specializations: IOption[] = [
   { label: 'Frontend', value: 'frontend', icon: <Layout /> },
   { label: 'Backend', value: 'backend', icon: <Server /> },
   { label: 'Fullstack', value: 'fullstack', icon: <Code2 /> },

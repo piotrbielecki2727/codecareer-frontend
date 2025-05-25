@@ -99,7 +99,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
                   <Badge
                     key={opt.value}
                     variant='secondary'
-                    className='flex items-center gap-3'
+                    className='flex items-center gap-3 bg-gray-200 dark:bg-neutral-700'
                   >
                     {opt.icon && <span>{opt.icon}</span>}
                     <span>{opt.label}</span>

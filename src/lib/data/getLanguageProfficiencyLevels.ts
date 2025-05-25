@@ -1,13 +1,9 @@
+import { IOption } from '@/types/interfaces';
 import { TFunction } from 'i18next';
 
-export interface LanguageProfficiencyLevels {
-  label: string;
-  value: string;
-}
 
-export const getLanguageProfficiencyLevels = (
-  t: TFunction
-): LanguageProfficiencyLevels[] => [
+
+export const getLanguageProfficiencyLevels = (t: TFunction): IOption[] => [
   { label: t('postJob.LanguageProfficiencyLevels.a1'), value: 'a1' },
   { label: t('postJob.LanguageProfficiencyLevels.a2'), value: 'a2' },
   { label: t('postJob.LanguageProfficiencyLevels.b1'), value: 'b1' },

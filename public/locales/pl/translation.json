@@ -118,6 +118,36 @@
     "fullAddress": "Pełny adres",
     "selectCity": "Wybierz miasto",
     "address": "Adres siedziby",
-    "exampleAddress": "plac Defilad 1, 00-901 Warszawa"
+    "exampleAddress": "plac Defilad 1, 00-901 Warszawa",
+    "edit": "Edycja",
+    "preview": "Podgląd",
+    "formatting": "Formatowanie:",
+    "bold": "Pogrubienie",
+    "italic": "Kursywa",
+    "heading": "Nagłówek",
+    "subheading": "Podnagłówek",
+    "list": "Lista",
+    "orderedList": "Lista numerowana",
+    "noContentPreview": "Brak treści do wyświetlenia",
+    "companyLogo": {
+      "label": "Logo firmy",
+      "preview": "Podgląd logo firmy",
+      "instructions": "Wgraj logo firmy (PNG lub JPEG, maks. 500x500px, maks. 1MB)",
+      "selectFile": "Wybierz plik",
+      "uploading": "Wgrywanie...",
+      "errorFormat": "Dozwolone są tylko pliki PNG i JPEG",
+      "errorSize": "Rozmiar pliku musi być mniejszy niż 1MB",
+      "errorDimensions": "Wymiary obrazu nie mogą przekraczać 500x500px",
+      "errorUpload": "Nie udało się wgrać obrazu",
+      "errorLoading": "Nie udało się załadować obrazu"
+    },
+    "technologiesLevels": {
+      "niceToHave": "Milewidziane",
+      "junior": "Junior",
+      "regular": "Regular",
+      "advanced": "Advanced",
+      "senior": "Senior"
+    },
+    "chooseLevelForEveryTechnology": "Wybierz poziom dla każdej technologii"
   }
 }

@@ -1,11 +1,8 @@
+import { IOption } from '@/types/interfaces';
 import { TFunction } from 'i18next';
 
-export interface SalaryPeriod {
-  label: string;
-  value: string;
-}
 
-export const getSalaryPeriods = (t: TFunction): SalaryPeriod[] => [
+export const getSalaryPeriods = (t: TFunction): IOption[] => [
   { label: t('postJob.perHour'), value: 'perHour' },
   { label: t('postJob.perDay'), value: 'perDay' },
   { label: t('postJob.perMonth'), value: 'perMonth' },

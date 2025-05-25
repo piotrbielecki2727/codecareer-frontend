@@ -1,11 +1,7 @@
+import { IOption } from '@/types/interfaces';
 import { TFunction } from 'i18next';
 
-export interface EmploymentType {
-  label: string;
-  value: string;
-}
-
-export const getEmploymentTypes = (t: TFunction): EmploymentType[] => [
+export const getEmploymentTypes = (t: TFunction): IOption[] => [
   { label: t('employment.fullTime'), value: 'full-time' },
   { label: t('employment.partTime'), value: 'part-time' },
   { label: t('employment.contract'), value: 'contract' },

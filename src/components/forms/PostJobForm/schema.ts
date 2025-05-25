@@ -6,6 +6,7 @@ export const jobFormSchema = z.object({
   companyDescription: z
     .string()
     .min(10, { message: 'Opis firmy jest za krótki' }),
+  companyLogoUrl: z.string().optional(),
   level: z.string().nonempty({ message: 'Wybierz poziom' }),
   specialization: z.string().nonempty({ message: 'Wybierz specjalizację' }),
   contractType: z.string().nonempty({ message: 'Wybierz rodzaj umowy' }),
@@ -16,6 +17,7 @@ export const jobFormSchema = z.object({
   technologies: z
     .array(z.string())
     .min(1, { message: 'Wybierz conajmniej jedną technologię' }),
+  technologiesLevels: z.record(z.string(), z.number()).optional(),
   isSalaryRange: z.boolean().optional(),
   salary: z
     .number()
@@ -49,12 +51,14 @@ export const jobFormDefaultValues: JobFormValues = {
   jobTitle: '',
   companyName: '',
   companyDescription: '',
+  companyLogoUrl: '',
   level: '',
   specialization: '',
   contractType: '',
   workMode: '',
   vacancies: '',
   technologies: [],
+  technologiesLevels: {},
   isSalaryRange: false,
   salary: undefined,
   minSalary: undefined,
