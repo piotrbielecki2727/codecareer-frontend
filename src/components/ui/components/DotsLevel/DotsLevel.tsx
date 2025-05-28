@@ -20,7 +20,7 @@ export const DotsLevel = ({
   disabled = false,
 }: Props) => {
   return (
-    <div className=' p-3 rounded-md shadow-md '>
+    <div className=' p-3 rounded-md shadow-md bg-neutral-100 dark:bg-neutral-800 h-full '>
       <div className='flex gap-2 mb-3'>
         {icon && (
           <div className=' flex items-center align-middle justify-center'>

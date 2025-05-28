@@ -11,3 +11,4 @@ export * from './CompanyLogoUploader';
 export * from './MarkdownEditor';
 export * from './Popover';
 export * from './DotsLevel';
+export * from './DatePicker';

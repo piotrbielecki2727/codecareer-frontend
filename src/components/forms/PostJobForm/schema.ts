@@ -43,6 +43,9 @@ export const jobFormSchema = z.object({
   address: z.string().optional(),
   addressLat: z.number().optional(),
   addressLon: z.number().optional(),
+  endDate: z.string().refine((val) => !isNaN(Date.parse(val)), {
+    message: 'Nieprawidłowy format daty',
+  }),
 });
 
 export type JobFormValues = z.infer<typeof jobFormSchema>;
@@ -72,4 +75,5 @@ export const jobFormDefaultValues: JobFormValues = {
   address: '',
   addressLat: undefined,
   addressLon: undefined,
+  endDate: '',
 };

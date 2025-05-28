@@ -16,6 +16,7 @@ export interface DropdownOption {
   value: string | number;
   icon?: React.ReactNode;
   disabled?: boolean;
+  customContent?: React.ReactNode;
 }
 
 interface BaseProps {
@@ -161,7 +162,8 @@ export const Dropdown = ({
               )}
             >
               {opt.icon && <span className='w-5 h-5'>{opt.icon}</span>}
-              <span className='flex-1'>{opt.label}</span>
+              <span className='flex-1'>{opt.customContent ?? opt.label}</span>
+
               {selected && <Check className='w-4 h-4 text-primary ml-auto' />}
             </DropdownMenuItem>
           );

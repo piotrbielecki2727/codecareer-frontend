@@ -53,7 +53,7 @@ export const Technologies = ({ control }: Props) => {
           'postJob.chooseLevelForEveryTechnology'
         )}:`}</span>
         {selectedTechnologies.length > 0 && (
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 bg-neutral-100  dark:bg-neutral-900 p-4 border rounded-md'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 bg-neutral-100  dark:bg-neutral-900 p-4 border rounded-md'>
             {selectedTechnologies.map((techKey: string) => {
               const tech = technologyMap[techKey];
               return (

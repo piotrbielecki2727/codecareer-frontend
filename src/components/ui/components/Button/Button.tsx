@@ -18,7 +18,7 @@ export const Button = ({
     <ShadcnButton
       variant={variant}
       size={size}
-      className={cn(className)}
+      className={cn('cursor-pointer', className)}
       {...props}
     >
       {children}

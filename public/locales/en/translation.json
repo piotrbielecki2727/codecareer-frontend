@@ -98,7 +98,7 @@
     "perOrder": "Per order",
     "salaryPeriod": "Salary period",
     "selectSalaryPeriod": "Select salary period...",
-    "languages": "Languages",
+    "languages": "Foreign languages",
     "selectLanguages": "Select languages...",
     "languageLevelFor": "Language level:",
     "selectProficiencyLevel": "Select proficiency level...",
@@ -148,6 +148,11 @@
       "advanced": "Advanced",
       "senior": "Senior"
     },
-    "chooseLevelForEveryTechnology": "Choose level for every technology"
+    "chooseLevelForEveryTechnology": "Choose level for every technology",
+    "chooseEndDate": "Choose date when offer will be closed",
+    "pickDate": "Pick a date"
+  },
+  "mainPage": {
+    "filters": "Filters"
   }
 }

@@ -1,5 +1,5 @@
 //core
-import { Eye, EyeOff } from 'lucide-react';
+import { Eye, EyeOff, Search } from 'lucide-react';
 //components
 import { ShadcnInput } from './base';
 import { Label } from '../Label';
@@ -10,12 +10,14 @@ import { InputType } from '@/types';
 import { useState } from 'react';
 
 interface IInput {
-  id: string;
-  label: string;
+  id?: string;
+  label?: string;
   type?: InputType;
   placeholder?: string;
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  className?: string;
+  isSearchBar?: boolean; // nowy prop
 }
 
 export const Input = ({
@@ -24,17 +26,24 @@ export const Input = ({
   type = InputType.Text,
   placeholder,
   value,
+  className,
   onChange,
+  isSearchBar = false, // domyślnie false
 }: IInput) => {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === 'password';
 
   return (
-    <div className='space-y-2'>
+    <div className={cn('space-y-2', className)}>
       <Label htmlFor={id} className='text-sm font-medium'>
         {label}
       </Label>
       <div className='relative'>
+        {isSearchBar && (
+          <div className='absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground'>
+            <Search size={18} />
+          </div>
+        )}
         <ShadcnInput
           id={id}
           type={isPassword ? (showPassword ? 'text' : 'password') : type}
@@ -43,7 +52,8 @@ export const Input = ({
           onChange={onChange}
           className={cn(
             'bg-white dark:bg-neutral-900 hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out',
-            isPassword && 'pr-10'
+            isPassword && 'pr-10',
+            isSearchBar && 'pl-10' // przesunięcie tekstu w prawo, aby nie nachodził na ikonę
           )}
         />
         {isPassword && (

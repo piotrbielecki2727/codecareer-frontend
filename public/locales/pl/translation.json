@@ -98,7 +98,7 @@
     "perOrder": "Za zlecenie",
     "salaryPeriod": "Okres wynagrodzenia",
     "selectSalaryPeriod": "Wybierz okres wynagrodzenia...",
-    "languages": "Języki",
+    "languages": "Języki obce",
     "selectLanguages": "Wybierz języki...",
     "languageLevelFor": "Poziom języka:",
     "selectProficiencyLevel": "Wybierz poziom biegłości...",
@@ -148,6 +148,11 @@
       "advanced": "Advanced",
       "senior": "Senior"
     },
-    "chooseLevelForEveryTechnology": "Wybierz poziom dla każdej technologii"
+    "chooseLevelForEveryTechnology": "Wybierz poziom dla każdej technologii",
+    "chooseEndDate": "Wybierz datę zakończenia oferty",
+    "pickDate": "Wybierz datę"
+  },
+  "mainPage": {
+    "filters": "Filtry"
   }
 }

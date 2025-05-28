@@ -24,6 +24,7 @@ export const PostJobFormFields = {
   address: 'address',
   addressLat: 'addressLat',
   addressLon: 'addressLon',
+  endDate: 'endDate',
 } as const;
 
 export type PostJobFormField =

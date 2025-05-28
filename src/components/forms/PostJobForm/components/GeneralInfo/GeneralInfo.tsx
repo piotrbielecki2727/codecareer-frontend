@@ -3,6 +3,7 @@
 import { Control, useFormContext } from 'react-hook-form';
 import {
   CompanyLogoUploader,
+  DatePickerControl,
   InputControl,
   MarkdownEditor,
 } from '@/components';
@@ -24,7 +25,6 @@ export const GeneralInfo = ({ control }: Props) => {
       <h2 className='text-xl font-semibold text-center mb-4 dark:text-white'>
         {t('postJob.generalInfo')}
       </h2>
-
       <InputControl
         name={PostJobFormFields.jobTitle}
         control={control}
@@ -50,13 +50,25 @@ export const GeneralInfo = ({ control }: Props) => {
         placeholder={t('postJob.companyDescriptionPlaceholder')}
         rows={10}
       />
-      <InputControl
-        name={PostJobFormFields.vacancies}
-        control={control}
-        label={t('postJob.vacancies')}
-        placeholder={t('postJob.vacanciesPlaceholder')}
-        type={InputType.Number}
-      />
+      <div className='grid grid-cols-1 md:grid-cols-8 gap-6'>
+        <div className='col-span-5'>
+          <InputControl
+            name={PostJobFormFields.vacancies}
+            control={control}
+            label={t('postJob.vacancies')}
+            placeholder={t('postJob.vacanciesPlaceholder')}
+            type={InputType.Number}
+          />
+        </div>
+        <div className='col-span-3'>
+          <DatePickerControl
+            name={PostJobFormFields.endDate}
+            control={control}
+            label={t('postJob.chooseEndDate')}
+            className='w-full'
+          />
+        </div>
+      </div>
     </section>
   );
 };
