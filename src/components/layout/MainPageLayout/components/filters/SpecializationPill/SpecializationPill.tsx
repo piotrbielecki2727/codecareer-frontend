@@ -6,6 +6,7 @@ import { IOption } from '@/types/interfaces';
 interface Props {
   spec: IOption;
   isSelected: boolean;
+  isAnySelected: boolean;
   onClick: () => void;
   className?: string;
 }
@@ -13,24 +14,28 @@ interface Props {
 export const SpecializationPill = ({
   spec,
   isSelected,
+  isAnySelected,
   onClick,
   className,
 }: Props) => {
+  const isDimmed = isAnySelected && !isSelected;
+
   return (
     <button
       onClick={onClick}
       className={cn(
-        'w-10 h-10 flex flex-col items-center justify-center text-white rounded-full transition relative',
-        'hover:brightness-110 focus:ring-2 focus:ring-offset-2 focus:outline-none',
-        isSelected ? 'ring-4 ring-offset-2 ring-white' : '',
-        bgColors[spec.value] || 'bg-gray-500',
-        className
+      'w-10 h-10 flex flex-col items-center justify-center text-white rounded-full relative cursor-pointer',
+      'transition-all duration-300 ease-in-out',
+      'hover:scale-110',
+      isSelected ? 'ring-2 ring-white' : '',
+      isDimmed ? 'bg-gray-500' : bgColors[spec.value] || 'bg-gray-500',
+      className
       )}
       title={spec.label}
     >
       <div className='text-lg'>{spec.icon}</div>
       <span className='text-[12px] absolute -bottom-5 w-max text-center font-bolder text-accent-foreground whitespace-nowrap'>
-        {spec.label}
+      {spec.label}
       </span>
     </button>
   );

@@ -33,6 +33,7 @@ export function middleware(req: NextRequest) {
     }
 
     return NextResponse.next();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (_) {
     return NextResponse.redirect(
       new URL(ROUTES.GENERAL.AUTH_EMPLOYER_SIGN_IN, req.url)
@@ -54,6 +55,7 @@ export const config = {
 function isPublicRoute(path: string): boolean {
   const publicRoutes = [
     ROUTES.GENERAL.HOME,
+    ROUTES.GENERAL.JOB_OFFER,
     ROUTES.GENERAL.AUTH_CANDIDATE_SIGN_IN,
     ROUTES.GENERAL.AUTH_CANDIDATE_SIGN_UP,
     ROUTES.GENERAL.AUTH_EMPLOYER_SIGN_IN,

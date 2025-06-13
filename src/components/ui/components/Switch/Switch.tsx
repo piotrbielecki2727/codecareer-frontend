@@ -5,7 +5,7 @@ import { Label } from '../Label';
 import { cn } from '@/lib/utils';
 
 interface Props extends React.ComponentProps<typeof ShadcnSwitch> {
-  id: string;
+  id?: string;
   label?: string;
   wrapperClassName?: string;
 }

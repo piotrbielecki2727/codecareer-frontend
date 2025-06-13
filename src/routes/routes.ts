@@ -5,6 +5,7 @@ export const ROUTES = {
     AUTH_CANDIDATE_SIGN_UP: '/auth/candidate/signUp',
     AUTH_EMPLOYER_SIGN_IN: '/auth/employer/signIn',
     AUTH_EMPLOYER_SIGN_UP: '/auth/employer/signUp',
+    JOB_OFFER: '/jobOffer',
   },
   EMPLOYER: {
     POST_A_JOB: '/employer/postAJob',

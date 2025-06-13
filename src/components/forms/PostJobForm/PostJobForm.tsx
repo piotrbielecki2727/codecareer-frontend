@@ -15,6 +15,7 @@ import {
 } from './components';
 import { Button } from '@/components/ui';
 import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
 
 export const PostJobForm = () => {
   const { t } = useTranslation();
@@ -28,12 +29,21 @@ export const PostJobForm = () => {
   const {
     handleSubmit,
     control,
+    getValues,
     formState: { isValid },
   } = methods;
 
   const onSubmit = (data: JobFormValues) => {
     console.log('Full job form:', data);
   };
+
+  console.log(methods.formState);
+
+  console.log(isValid);
+
+  useEffect(() => {
+    console.log('Form values changed:', getValues());
+  }, [getValues]);
 
   return (
     <FormProvider<JobFormValues> {...methods}>

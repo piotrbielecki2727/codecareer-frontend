@@ -3,14 +3,20 @@ import { MainPageLayout } from '@/components';
 
 export default function Home() {
   return (
-    <div className=' bg-white dark:bg-neutral-900'>
-      <div
-        className='pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_20%_30%,rgba(147,51,234,0.2),transparent_60%),radial-gradient(ellipse_at_70%_20%,rgba(37,99,235,0.25),transparent_60%),radial-gradient(ellipse_at_50%_80%,rgba(236,72,153,0.15),transparent_60%),radial-gradient(ellipse_at_90%_60%,rgba(16,185,129,0.15),transparent_60%)]'
-        aria-hidden='true'
-      />
-      <div className='relative z-10'>
-        <MainPageLayout />
-      </div>
+    <div
+      className='min-h-screen w-full bg-white dark:bg-neutral-900'
+      style={{
+        backgroundImage: `
+          radial-gradient(ellipse at 20% 30%, rgba(147, 51, 234, 0.2), transparent 60%),
+          radial-gradient(ellipse at 70% 20%, rgba(37, 99, 235, 0.25), transparent 60%),
+          radial-gradient(ellipse at 50% 80%, rgba(236, 72, 153, 0.15), transparent 60%),
+          radial-gradient(ellipse at 90% 60%, rgba(16, 185, 129, 0.15), transparent 60%)
+        `,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}
+    >
+      <MainPageLayout />
     </div>
   );
 }

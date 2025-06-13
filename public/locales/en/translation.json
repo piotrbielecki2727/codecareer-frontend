@@ -153,6 +153,19 @@
     "pickDate": "Pick a date"
   },
   "mainPage": {
-    "filters": "Filters"
-  }
+    "filters": "Filters",
+    "default": "Default",
+    "latest": "Latest",
+    "highestSalary": "Highest salary",
+    "lowestSalary": "Lowest salary",
+    "moreFilters": "More filters"
+  },
+  "new": "New",
+  "showOffersOnlyWithRanges": "Show offers only with salary ranges",
+  "minimumSalary": "Minimum salary",
+  "clearAll": "Clear all",
+  "filters": "Filters",
+  "results": "Results",
+  "offers": "Offers",
+  "loading": "Loading..."
 }

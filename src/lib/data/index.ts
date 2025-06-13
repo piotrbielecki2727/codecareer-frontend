@@ -5,3 +5,4 @@ export * from './specializations';
 export * from './currencies';
 export * from './getSalaryPeriods';
 export * from './getLanguageProfficiencyLevels';
+export * from './getSortingTypes';

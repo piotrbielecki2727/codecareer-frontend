@@ -153,6 +153,20 @@
     "pickDate": "Wybierz datę"
   },
   "mainPage": {
-    "filters": "Filtry"
-  }
+    "filters": "Filtry",
+    "default": "Domyślne",
+    "latest": "Najnowsze",
+    "highestSalary": "Najwyższe zarobki",
+    "lowestSalary": "Najniższe zarobki",
+    "moreFilters": "Więcej filtrów"
+  },
+  "new": "Nowe",
+  "showOffersOnlyWithRanges": "Pokaż oferty tylko z widełkami",
+  "minimumSalary": "Minimalne zarobki",
+  "clearAll": "Wyczyść wszystko",
+  "filters": "Filtry",
+  "jobOffers": "Oferty pracy",
+  "results": "Wyniki",
+  "offers": "Ofert",
+  "loading": "Ładowanie..."
 }
