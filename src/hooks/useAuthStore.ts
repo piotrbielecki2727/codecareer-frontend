@@ -1,11 +1,12 @@
 import { create } from 'zustand';
 import { Role } from '../types/enum';
 
-type User = {
+export type User = {
   sub: string;
   email: string;
   role: Role;
   firstLogin: boolean;
+  firstName: string;
 };
 
 type AuthState = {

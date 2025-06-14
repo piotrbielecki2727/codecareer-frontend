@@ -9,14 +9,16 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/components/Dropdown/base';
 import { Button } from '@/components/ui';
+import { useTranslation } from 'react-i18next';
 
 export const ThemeToggle = () => {
   const { setTheme, theme } = useTheme();
+  const { t } = useTranslation();
 
   const items = [
-    { label: 'Light', value: 'light', icon: Sun },
-    { label: 'Dark', value: 'dark', icon: Moon },
-    { label: 'System', value: 'system', icon: Laptop2 },
+    { label: t('light'), value: 'light', icon: Sun },
+    { label: t('dark'), value: 'dark', icon: Moon },
+    { label: t('system'), value: 'system', icon: Laptop2 },
   ];
 
   return (

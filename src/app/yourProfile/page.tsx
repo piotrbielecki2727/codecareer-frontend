@@ -1,17 +1,8 @@
 'use client';
 
-import { JobOfferLayout } from '@/components';
-import { useAuthStore, useJobStore } from '@/hooks';
-import { notFound } from 'next/navigation';
+import { YourProfileLayout } from '@/components';
 
-export default function JobOfferDetails() {
-  const selectedJob = useJobStore((state) => state.selectedJob);
-  const user = useAuthStore((state) => state.user);
-
-  if (!selectedJob || !user) {
-    return notFound();
-  }
-
+export default function YourProfileDetails() {
   return (
     <div className='relative min-h-screen overflow-hidden bg-white dark:bg-neutral-900'>
       <div
@@ -19,7 +10,7 @@ export default function JobOfferDetails() {
         aria-hidden='true'
       />
       <div className='relative z-10'>
-        <JobOfferLayout selectedJob={selectedJob} user={user} />
+        <YourProfileLayout />
       </div>
     </div>
   );

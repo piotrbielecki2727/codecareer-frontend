@@ -9,6 +9,7 @@ type Props = {
   onSelect?: (value: number) => void;
   levelsLabels?: string[];
   disabled?: boolean;
+  className?: string;
 };
 
 export const DotsLevel = ({
@@ -18,9 +19,15 @@ export const DotsLevel = ({
   onSelect,
   levelsLabels = [],
   disabled = false,
+  className,
 }: Props) => {
   return (
-    <div className=' p-3 rounded-md shadow-md bg-neutral-100 dark:bg-neutral-800 h-full '>
+    <div
+      className={cn(
+        ' p-3 rounded-md shadow-md bg-neutral-100 dark:bg-neutral-800 h-full ',
+        className
+      )}
+    >
       <div className='flex gap-2 mb-3'>
         {icon && (
           <div className=' flex items-center align-middle justify-center'>
@@ -29,7 +36,6 @@ export const DotsLevel = ({
         )}
         <span className='text-md font-medium'>{label}</span>
       </div>
-
       <div className='flex gap-1 mb-2'>
         {[1, 2, 3, 4, 5].map((level) => {
           const isSelected = level <= value;
@@ -60,7 +66,6 @@ export const DotsLevel = ({
           );
         })}
       </div>
-
       {value > 0 && levelsLabels[value - 1] && (
         <p className='text-sm text-muted-foreground'>
           {levelsLabels[value - 1]}

@@ -13,6 +13,7 @@ import { InputType } from '@/types';
 type InputControlProps<TFieldValues extends FieldValues> = {
   label: string;
   placeholder?: string;
+  isRequired?: boolean;
   type?: InputType;
 } & UseControllerProps<TFieldValues, FieldPath<TFieldValues>>;
 
@@ -20,6 +21,7 @@ export const InputControl = <TFieldValues extends FieldValues>({
   name,
   control,
   rules,
+  isRequired,
   label,
   placeholder,
   type = InputType.Text,
@@ -34,6 +36,7 @@ export const InputControl = <TFieldValues extends FieldValues>({
       <Input
         id={name}
         label={label}
+        isRequired={isRequired}
         type={type}
         placeholder={placeholder}
         value={value}

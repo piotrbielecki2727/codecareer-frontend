@@ -9,9 +9,11 @@ export const ROUTES = {
   },
   EMPLOYER: {
     POST_A_JOB: '/employer/postAJob',
+    YOUR_PROFILE: '/yourProfile',
   },
   CANDIDATE: {
     APPLY_FOR_JOB: '/candidate/applyForJob',
+    YOUR_PROFILE: '/yourProfile',
   },
   ADMIN: {
     USER_MANAGEMENT: '/admin/userManagement',

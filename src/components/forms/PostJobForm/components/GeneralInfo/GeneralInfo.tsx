@@ -41,7 +41,10 @@ export const GeneralInfo = ({ control }: Props) => {
         type={InputType.Text}
       />
       <CompanyLogoUploader
-        onUpload={(url) => setValue(PostJobFormFields.companyLogoUrl, url)}
+        onUpload={(url) => {
+          setValue(PostJobFormFields.companyLogoUrl, url);
+          console.log('Logo URL:', url);
+        }}
       />
       <MarkdownEditor
         name={PostJobFormFields.companyDescription}

@@ -14,7 +14,7 @@ export const Label = ({
   return (
     <ShadcnLabel className={cn(className)} {...props}>
       {children}
-      {required && <span className='text-red-500 ml-0.5'>*</span>}
+      {required && <span className='text-red-500'>*</span>}
     </ShadcnLabel>
   );
 };

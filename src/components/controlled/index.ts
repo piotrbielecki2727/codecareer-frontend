@@ -6,3 +6,4 @@ export * from './SwitchControl';
 export * from './InputWithCounterControl';
 export * from './DotsLevelControl';
 export * from './DatePickerControl'
+export * from './UploadControl';

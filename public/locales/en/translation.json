@@ -1,7 +1,12 @@
 {
+  "hello": "Hello",
+  "yourProfile": "Your profile",
   "polish": "Polish",
   "english": "English",
-  "chooseLanguage": "Choose language:",
+  "light": "Light",
+  "dark": "Dark",
+  "system": "System",
+  "chooseLanguage": "Language",
   "currency": "Currency",
   "theme": "Theme",
   "signIn": "Sign in",
@@ -59,8 +64,13 @@
     "office": "Office"
   },
   "postAJobOffer": "Post a job offer",
+  "checkYourProfile": "Check your profile",
+  "jobOffers": "Job offers",
+  "myJobOffers": "My job offers",
   "settings": "Settings",
   "noResultsFound": "No results found",
+  "menu": "Menu",
+  "profileDetails": "Profile details",
   "postJob": {
     "newJobOffer": "New Job Offer",
     "formDescription": "Fill out the form below to publish a new job offer. All fields must be correctly filled in.",
@@ -167,5 +177,8 @@
   "filters": "Filters",
   "results": "Results",
   "offers": "Offers",
-  "loading": "Loading..."
+  "loading": "Loading...",
+  "job": {
+    "apply": "Apply"
+  }
 }

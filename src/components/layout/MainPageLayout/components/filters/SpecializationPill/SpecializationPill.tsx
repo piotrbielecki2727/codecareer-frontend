@@ -24,18 +24,20 @@ export const SpecializationPill = ({
     <button
       onClick={onClick}
       className={cn(
-      'w-10 h-10 flex flex-col items-center justify-center text-white rounded-full relative cursor-pointer',
-      'transition-all duration-300 ease-in-out',
-      'hover:scale-110',
-      isSelected ? 'ring-2 ring-white' : '',
-      isDimmed ? 'bg-gray-500' : bgColors[spec.value] || 'bg-gray-500',
-      className
+        'w-10 h-10 flex flex-col items-center justify-center text-white rounded-full relative cursor-pointer',
+        'transition-all duration-300 ease-in-out',
+        'hover:scale-110',
+        isSelected ? 'ring-2 ring-white' : '',
+        isDimmed
+          ? 'bg-gray-400 dark:bg-gray-500'
+          : bgColors[spec.value] || 'bg-gray-500',
+        className
       )}
       title={spec.label}
     >
       <div className='text-lg'>{spec.icon}</div>
       <span className='text-[12px] absolute -bottom-5 w-max text-center font-bolder text-accent-foreground whitespace-nowrap'>
-      {spec.label}
+        {spec.label}
       </span>
     </button>
   );

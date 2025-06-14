@@ -13,7 +13,20 @@ import {
 import { levels } from '@/lib/data/levels';
 import { technologies } from '@/lib/data/technologies';
 
-export const useJobPostLabels = (job: JobPostFormData) => {
+export interface JobPostLabels {
+  specializationLabel: string;
+  contractTypeLabel: string;
+  workModeLabel: string;
+  levelLabel: string;
+  salaryPeriodLabel: string;
+  currencyLabel: string;
+  languageLabels: string[];
+  languageLevelLabels: { language: string; level: string }[];
+  technologyLabels: string[];
+  technologiesLevelsLabels: { technology: string; level: string }[];
+}
+
+export const useJobPostLabels = (job: JobPostFormData): JobPostLabels => {
   const { t } = useTranslation();
 
   const findLabel = (value: string, options: IOption[]): string =>

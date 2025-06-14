@@ -25,16 +25,48 @@ export const Navbar = () => {
         CodeCareer
       </Link>
       <div className='flex gap-6 justify-center items-center'>
+        <Link
+          className='bg-gradient-to-r from-purple-600 to-blue-400 text-sm bg-clip-text text-transparent font-bold mr-2'
+          href={ROUTES.GENERAL.HOME}
+        >
+          {t('jobOffers')}
+        </Link>
         {!isAuthenticated && <SignInDropdown />}
         {isAuthenticated && role === Role.EMPLOYER && (
-          <Button
-            onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
-            variant='outline'
-          >
-            <span className='bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent font-bold'>
-              {t('postAJobOffer')}
-            </span>
-          </Button>
+          <div className='flex gap-4'>
+            <Button
+              onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
+              variant='outline'
+            >
+              <span className='bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent font-bold'>
+                {t('postAJobOffer')}
+              </span>
+            </Button>
+            <Button
+              onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
+              className='bg-gradient-to-r from-purple-600 to-blue-400 hover:from-purple-700 hover:to-blue-500'
+            >
+              <span className='text-white'>{t('myJobOffers')}</span>
+            </Button>
+          </div>
+        )}
+        {isAuthenticated && role === Role.CANDIDATE && (
+          <div className='flex gap-4'>
+            <Button
+              onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
+              variant='outline'
+            >
+              <span className='bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent font-bold'>
+                {t('postAJobOffer')}
+              </span>
+            </Button>
+            <Button
+              onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
+              className='bg-gradient-to-r from-purple-600 to-blue-400 hover:from-purple-700 hover:to-blue-500'
+            >
+              <span className='text-white'>{t('myJobOffers')}</span>
+            </Button>
+          </div>
         )}
         {isAuthenticated && <UserDropdown />}
         <SettingsDropdown />

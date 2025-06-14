@@ -1,7 +1,12 @@
 {
+  "hello": "Witaj",
+  "yourProfile": "Twój profil",
   "polish": "Polski",
   "english": "Angielski",
-  "chooseLanguage": "Wybierz język:",
+  "light": "Jasny",
+  "dark": "Ciemny",
+  "system": "Systemowy",
+  "chooseLanguage": "Język",
   "currency": "Waluta",
   "theme": "Motyw",
   "signIn": "Zaloguj się",
@@ -59,6 +64,7 @@
     "office": "Stacjonarna"
   },
   "postAJobOffer": "Dodaj ofertę pracy",
+  "myJobOffers": "Moje oferty pracy",
   "settings": "Ustawienia",
   "noResultsFound": "Nie znaleziono wyników",
   "postJob": {
@@ -165,8 +171,14 @@
   "minimumSalary": "Minimalne zarobki",
   "clearAll": "Wyczyść wszystko",
   "filters": "Filtry",
+  "checkYourProfile": "Sprawdź swój profil",
   "jobOffers": "Oferty pracy",
+  "menu": "Menu",
+  "profileDetails": "Szczegóły profilu",
   "results": "Wyniki",
   "offers": "Ofert",
-  "loading": "Ładowanie..."
+  "loading": "Ładowanie...",
+  "job": {
+    "apply": "Aplikuj"
+  }
 }

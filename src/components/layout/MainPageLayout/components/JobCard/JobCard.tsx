@@ -2,10 +2,10 @@ import Image from 'next/image';
 import { Bookmark, BuildingIcon, Navigation } from 'lucide-react';
 import { Badge } from '@/components/ui/shadcnComponents/badge';
 import { useTranslation } from 'react-i18next';
-import { useJobPostLabels } from './useJobPostLabels';
+import { JobPostLabels, useJobPostLabels } from './useJobPostLabels';
 import Link from 'next/link';
 import { ROUTES } from '@/routes';
-import { useJobStore } from '@/hooks';
+import { JobOffer, useJobStore } from '@/hooks';
 
 export interface JobPostFormData {
   id: string;
@@ -45,7 +45,6 @@ type JobCardProps = {
 
 export const JobCard = ({ jobOffer }: JobCardProps) => {
   const { t } = useTranslation();
-
   const setSelectedJob = useJobStore((state) => state.setSelectedJob);
 
   const {
@@ -61,11 +60,29 @@ export const JobCard = ({ jobOffer }: JobCardProps) => {
     technologiesLevelsLabels,
   } = useJobPostLabels(jobOffer);
 
+  const jobOfferLabels: JobPostLabels = {
+    specializationLabel,
+    contractTypeLabel,
+    workModeLabel,
+    levelLabel,
+    salaryPeriodLabel,
+    currencyLabel,
+    languageLabels,
+    languageLevelLabels,
+    technologyLabels,
+    technologiesLevelsLabels,
+  };
+
+  const handleClick = () => {
+    const fullJobOffer: JobOffer = {
+      job: jobOffer,
+      jobOfferLabels,
+    };
+    setSelectedJob(fullJobOffer);
+  };
+
   return (
-    <Link
-      href={ROUTES.GENERAL.JOB_OFFER}
-      onClick={() => setSelectedJob(jobOffer)}
-    >
+    <Link href={ROUTES.GENERAL.JOB_OFFER} onClick={handleClick}>
       <div className='relative rounded-md bg-neutral-100 dark:bg-neutral-900 cursor-pointer hover:scale-101 transition-transform duration-200 shadow-sm hover:shadow-md'>
         <div
           className='grid grid-cols-[1fr_auto_auto_auto] gap-4 items-center p-3
@@ -76,8 +93,8 @@ export const JobCard = ({ jobOffer }: JobCardProps) => {
               <Image
                 src={jobOffer.companyLogoUrl as string}
                 alt={`${jobOffer.companyName} logo`}
-                width={30}
-                height={30}
+                width={42}
+                height={42}
                 className='object-contain'
               />
             </div>
@@ -122,6 +139,9 @@ export const JobCard = ({ jobOffer }: JobCardProps) => {
           <div className='flex flex-col justify-center items-end gap-1'>
             <span className='font-semibold text-black dark:text-white whitespace-nowrap'>
               {jobOffer.minSalary} - {jobOffer.maxSalary} {currencyLabel}
+            </span>
+            <span className='text-xs text-muted-foreground'>
+              brutto / {salaryPeriodLabel.toLocaleLowerCase()}
             </span>
             <span className='text-xs text-muted-foreground'>
               {contractTypeLabel}

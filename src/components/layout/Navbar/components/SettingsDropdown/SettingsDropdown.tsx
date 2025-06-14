@@ -41,16 +41,16 @@ const currencyOptions = [
   { label: 'USD', value: Currency.USD },
 ];
 
-const themeOptions = [
-  { label: 'Light', value: 'light', icon: Sun },
-  { label: 'Dark', value: 'dark', icon: Moon },
-  { label: 'System', value: 'system', icon: Laptop2 },
-];
-
 export const SettingsDropdown = () => {
   const { i18n, t } = useTranslation();
   const [currency, setCurrency] = useState<Currency>(Currency.PLN);
   const { setTheme, theme } = useTheme();
+
+  const themeOptions = [
+    { label: t('light'), value: 'light', icon: Sun },
+    { label: t('dark'), value: 'dark', icon: Moon },
+    { label: t('system'), value: 'system', icon: Laptop2 },
+  ];
 
   return (
     <DropdownMenu modal={false}>
@@ -64,7 +64,7 @@ export const SettingsDropdown = () => {
         <div className='flex items-center gap-2 px-2 py-2 text-sm '>
           {t('settings')}
         </div>
-        <div className='bg-gray-100 h-[1px]'></div>
+        <div className='bg-neutral-300 dark:bg-neutral-600 h-[1px]'></div>
         <div className='flex items-center gap-2 px-2 py-2 text-sm text-muted-foreground'>
           <Globe className='w-4 h-4' />
           {t('chooseLanguage')}
@@ -81,7 +81,7 @@ export const SettingsDropdown = () => {
             {i18n.language === code && <Check className='w-4 h-4 opacity-70' />}
           </DropdownMenuItem>
         ))}
-        <div className='bg-gray-100 h-[1px]'></div>
+        {/* <div className='bg-gray-100 h-[1px]'></div>
         <div className='flex items-center gap-2 px-2 py-2 mt-3 text-sm text-muted-foreground'>
           <DollarSign className='w-4 h-4' />
           {t('currency')}
@@ -97,8 +97,8 @@ export const SettingsDropdown = () => {
             {label}
             {currency === value && <Check className='w-4 h-4 opacity-70' />}
           </DropdownMenuItem>
-        ))}
-        <div className='bg-gray-100 h-[1px]'></div>
+        ))} */}
+        <div className='bg-neutral-300 dark:bg-neutral-600 h-[0.5px] mt-3'></div>
         <div className='flex items-center gap-2 px-2 py-2 mt-3 text-sm text-muted-foreground'>
           <Wand className='w-4 h-4' />
           {t('theme')}

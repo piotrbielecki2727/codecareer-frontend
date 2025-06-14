@@ -11,10 +11,11 @@ import { useState } from 'react';
 
 interface IInput {
   id?: string;
-  label?: string;
+  label?: React.ReactNode;
   type?: InputType;
   placeholder?: string;
   value?: string;
+  isRequired?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   isSearchBar?: boolean; // nowy prop
@@ -25,6 +26,7 @@ export const Input = ({
   label,
   type = InputType.Text,
   placeholder,
+  isRequired,
   value,
   className,
   onChange,
@@ -35,7 +37,7 @@ export const Input = ({
 
   return (
     <div className={cn('space-y-2', className)}>
-      <Label htmlFor={id} className='text-sm font-medium'>
+      <Label required={isRequired} htmlFor={id} className='text-sm font-medium'>
         {label}
       </Label>
       <div className='relative'>

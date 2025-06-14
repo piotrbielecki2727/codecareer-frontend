@@ -15,6 +15,7 @@ import {
 import { getSortingTypes } from '@/lib';
 import { useTranslation } from 'react-i18next';
 import { jobCardsConfig } from './jobCardsConfig';
+import { getTranslatedLabel } from './components/JobCard/getTranslatedLabel';
 
 export const MainPageLayout = () => {
   const { t } = useTranslation();
@@ -64,7 +65,7 @@ export const MainPageLayout = () => {
 
     selectedTechnologies.forEach((value) =>
       filters.push({
-        label: value,
+        label: getTranslatedLabel(value, t),
         onRemove: () =>
           setSelectedTechnologies((prev) => prev.filter((v) => v !== value)),
       })
@@ -72,7 +73,7 @@ export const MainPageLayout = () => {
 
     selectedLevels.forEach((value) =>
       filters.push({
-        label: value,
+        label: getTranslatedLabel(value, t),
         onRemove: () =>
           setSelectedLevels((prev) => prev.filter((v) => v !== value)),
       })
@@ -80,7 +81,7 @@ export const MainPageLayout = () => {
 
     selectedWorkModes.forEach((value) =>
       filters.push({
-        label: value,
+        label: getTranslatedLabel(value, t),
         onRemove: () =>
           setSelectedWorkModes((prev) => prev.filter((v) => v !== value)),
       })
@@ -88,7 +89,7 @@ export const MainPageLayout = () => {
 
     selectedEmploymentTypes.forEach((value) =>
       filters.push({
-        label: value,
+        label: getTranslatedLabel(value, t),
         onRemove: () =>
           setSelectedEmploymentTypes((prev) => prev.filter((v) => v !== value)),
       })
@@ -276,10 +277,13 @@ export const MainPageLayout = () => {
                 ))}
               </div>
             </div>
-
-            <span>{`${t('results')}: ${filteredAndSortedJobs.length} ${t(
-              'offers'
-            ).toLowerCase()}`}</span>
+            {getActiveFilters().length > 0 ? (
+              <span>{`${t('results')}: ${filteredAndSortedJobs.length} ${t(
+                'offers'
+              ).toLowerCase()}`}</span>
+            ) : (
+              <></>
+            )}
 
             {loading ? (
               <div className='py-10 flex justify-center animate-pulse'>
