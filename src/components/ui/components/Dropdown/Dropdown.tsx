@@ -27,6 +27,7 @@ interface BaseProps {
   contentClassName?: string;
   itemClassName?: string;
   showIconsInTrigger?: boolean;
+  icon?: React.ReactNode; // 👈 NEW
 }
 
 interface SingleSelectProps extends BaseProps {
@@ -54,6 +55,7 @@ export const Dropdown = ({
   itemClassName,
   multiple = false,
   showIconsInTrigger = false,
+  icon, // 👈 NEW PROP
 }: DropdownProps): React.ReactElement => {
   const [isOpen, setIsOpen] = React.useState(false);
 
@@ -77,50 +79,57 @@ export const Dropdown = ({
         <Button
           variant='outline'
           className={cn(
-            'justify-between w-full text-base px-4 py-2 outline-none focus-visible:outline-none hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out',
+            'justify-between w-full text-base px-3 py-2 outline-none focus-visible:outline-none hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out',
             triggerClassName
           )}
         >
-          <span className='flex flex-wrap items-center gap-2 truncate'>
-            {multiple ? (
-              Array.isArray(selected) && selected.length > 0 ? (
-                selected.map((opt) => (
-                  <span
-                    key={String(opt.value)}
-                    className='flex items-center gap-1'
-                  >
-                    {showIconsInTrigger && opt.icon && (
-                      <span className='w-4 h-4'>{opt.icon}</span>
-                    )}
-                    {opt.label}
+          <span className='flex items-center gap-2 truncate'>
+            {icon && (
+              <span className='w-4 h-4 text-muted-foreground'>{icon}</span>
+            )}
+            <span className='flex flex-wrap items-center gap-2 truncate'>
+              {multiple ? (
+                Array.isArray(selected) && selected.length > 0 ? (
+                  selected.map((opt) => (
+                    <span
+                      key={String(opt.value)}
+                      className='flex items-center gap-1'
+                    >
+                      {showIconsInTrigger && opt.icon && (
+                        <span className='w-4 h-4'>{opt.icon}</span>
+                      )}
+                      {opt.label}
+                    </span>
+                  ))
+                ) : (
+                  <span className='text-muted-foreground text-sm'>
+                    {placeholder}
                   </span>
-                ))
+                )
+              ) : selected && !Array.isArray(selected) ? (
+                <span className='flex items-center gap-1 text-sm'>
+                  {showIconsInTrigger && selected.icon && (
+                    <span className='w-4 h-4'>{selected.icon}</span>
+                  )}
+                  {selected.label}
+                </span>
               ) : (
                 <span className='text-muted-foreground text-sm'>
                   {placeholder}
                 </span>
-              )
-            ) : selected && !Array.isArray(selected) ? (
-              <span className='flex items-center gap-1 text-sm'>
-                {showIconsInTrigger && selected.icon && (
-                  <span className='w-4 h-4'>{selected.icon}</span>
-                )}
-                {selected.label}
-              </span>
-            ) : (
-              <span className='text-muted-foreground text-sm'>
-                {placeholder}
-              </span>
-            )}
+              )}
+            </span>
           </span>
 
-          <span className='ml-auto pl-2'>
-            {isOpen ? (
-              <ChevronUp className='w-4 h-4 text-muted-foreground' />
-            ) : (
-              <ChevronDown className='w-4 h-4 text-muted-foreground' />
-            )}
-          </span>
+          {!disabled && (
+            <span className='ml-auto pl-2'>
+              {isOpen ? (
+                <ChevronUp className='w-4 h-4 text-muted-foreground' />
+              ) : (
+                <ChevronDown className='w-4 h-4 text-muted-foreground' />
+              )}
+            </span>
+          )}
         </Button>
       </DropdownMenuTrigger>
 

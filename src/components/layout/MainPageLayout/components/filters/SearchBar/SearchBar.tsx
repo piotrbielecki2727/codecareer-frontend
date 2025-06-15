@@ -2,6 +2,7 @@
 
 import { Input } from '@/components/ui';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface SearchBarProps {
   value: string;
@@ -9,13 +10,15 @@ interface SearchBarProps {
 }
 
 export const SearchBar = ({ value, onChange }: SearchBarProps) => {
+  const { t } = useTranslation();
   return (
     <Input
       className='space-y-0 w-[500px]'
-      placeholder='Szukaj ofert pracy...'
+      placeholder={t('searchForJobOffers')}
       isSearchBar
       value={value}
       onChange={(e) => onChange(e.target.value)}
+      isDeleteButton
     />
   );
 };

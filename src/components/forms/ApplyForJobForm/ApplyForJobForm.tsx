@@ -92,7 +92,7 @@ export const ApplyForJobForm = () => {
       <div className='flex justify-center items-center'>
         <Button
           type='submit'
-          className='w-[300px] bg-gradient-to-r from-purple-600 to-blue-400 text-white mt-2 rounded-full'
+          className='w-[300px] bg-gradient-to-r from-purple-600 to-blue-400 text-white mt-2 rounded-full hover:opacity-90 hover:scale-105 transition-all'
           disabled={!isValid || isSubmitting}
         >
           Aplikuj

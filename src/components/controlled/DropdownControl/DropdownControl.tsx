@@ -15,6 +15,8 @@ type DropdownControlProps<TFieldValues extends FieldValues> = {
   options: DropdownOption[];
   multiple?: boolean;
   showIconsInTrigger?: boolean;
+  icon?: React.ReactNode;
+  disabled?: boolean; // ✅ NEW
 } & UseControllerProps<TFieldValues, FieldPath<TFieldValues>>;
 
 export const DropdownControl = <TFieldValues extends FieldValues>({
@@ -26,6 +28,8 @@ export const DropdownControl = <TFieldValues extends FieldValues>({
   options,
   multiple = false,
   showIconsInTrigger = false,
+  icon,
+  disabled, // ✅ NEW
 }: DropdownControlProps<TFieldValues>) => {
   const {
     field: { value, onChange },
@@ -48,6 +52,8 @@ export const DropdownControl = <TFieldValues extends FieldValues>({
         placeholder={placeholder}
         multiple={multiple}
         showIconsInTrigger={showIconsInTrigger}
+        icon={icon}
+        disabled={disabled} // ✅ PRZEKAZANIE
       />
       {error && <p className='text-sm text-red-500 mt-1'>{error.message}</p>}
     </div>

@@ -10,6 +10,9 @@ export const ROUTES = {
   EMPLOYER: {
     POST_A_JOB: '/employer/postAJob',
     YOUR_PROFILE: '/yourProfile',
+    CANDIDATES_PANEL: '/employer/candidatesPanel',
+    MY_JOB_OFFERS: '/employer/myJobOffers',
+    CANDIDATE_PROFILE: '/employer/candidateProfile',
   },
   CANDIDATE: {
     APPLY_FOR_JOB: '/candidate/applyForJob',

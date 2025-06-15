@@ -34,6 +34,7 @@ interface ComboboxProps {
   multiSelect?: boolean;
   className?: string;
   popoverClassName?: string;
+  disabled?: boolean;
 }
 
 export const Combobox: React.FC<ComboboxProps> = ({
@@ -44,6 +45,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
   multiSelect = false,
   className,
   popoverClassName,
+  disabled,
 }) => {
   const [open, setOpen] = React.useState(false);
   const { t } = useTranslation();
@@ -78,13 +80,19 @@ export const Combobox: React.FC<ComboboxProps> = ({
   };
 
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover open={disabled ? false : open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <div
+          onClick={() => {
+            if (disabled) return;
+            setOpen(true);
+          }}
           className={cn(
-            'border rounded-md px-2 py-1 min-h-[42px] w-full cursor-pointer text-center flex items-center justify-between',
+            'border rounded-md px-2 py-1 min-h-[42px] w-full text-center flex items-center justify-between',
             'bg-white dark:bg-neutral-900',
-            'hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out',
+            !disabled &&
+              'cursor-pointer hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out',
+            disabled && 'opacity-70 select-none',
             className
           )}
         >
@@ -103,25 +111,27 @@ export const Combobox: React.FC<ComboboxProps> = ({
                   >
                     {opt.icon && <span>{opt.icon}</span>}
                     <span>{opt.label}</span>
-                    <Button
-                      type='button'
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        removeOption(opt.value);
-                      }}
-                      variant='ghost'
-                      size='icon'
-                      className='h-6 w-6 p-0 text-muted-foreground'
-                    >
-                      <X className='h-4 w-4' />
-                    </Button>
+                    {!disabled && (
+                      <Button
+                        type='button'
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          removeOption(opt.value);
+                        }}
+                        variant='ghost'
+                        size='icon'
+                        className='h-6 w-6 p-0 text-muted-foreground'
+                      >
+                        <X className='h-4 w-4' />
+                      </Button>
+                    )}
                   </Badge>
                 ))
               )}
             </div>
 
             <div className='flex items-center gap-1'>
-              {selected.length > 0 && (
+              {selected.length > 0 && !disabled && (
                 <Button
                   type='button'
                   onClick={(e) => {
@@ -135,7 +145,9 @@ export const Combobox: React.FC<ComboboxProps> = ({
                   <X className='h-4 w-4' />
                 </Button>
               )}
-              <ChevronsUpDown className='h-4 w-4 text-muted-foreground' />
+              {!disabled && (
+                <ChevronsUpDown className='h-4 w-4 text-muted-foreground' />
+              )}
             </div>
           </div>
         </div>

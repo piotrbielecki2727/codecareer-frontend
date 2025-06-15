@@ -11,6 +11,7 @@ interface ComboboxControlProps<T extends FieldValues>
   options: Option[];
   multiSelect?: boolean;
   placeholder?: string;
+  disabled?: boolean;
 }
 
 export const ComboboxControl = <T extends FieldValues>({
@@ -21,6 +22,7 @@ export const ComboboxControl = <T extends FieldValues>({
   options,
   multiSelect = false,
   placeholder,
+  disabled,
 }: ComboboxControlProps<T>) => {
   const {
     field: { value, onChange },
@@ -31,6 +33,7 @@ export const ComboboxControl = <T extends FieldValues>({
     <div className='space-y-2 flex flex-col'>
       <label className='text-sm font-medium'>{label}</label>
       <Combobox
+        disabled={disabled}
         options={options}
         selected={value ?? []}
         onChange={onChange}

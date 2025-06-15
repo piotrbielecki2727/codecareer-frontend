@@ -1,10 +1,7 @@
-//core
-import { Eye, EyeOff, Search } from 'lucide-react';
-//components
+import { Eye, EyeOff, Search, X } from 'lucide-react';
 import { ShadcnInput } from './base';
 import { Label } from '../Label';
 import { Button } from '../Button';
-//other
 import { cn } from '@/lib/utils';
 import { InputType } from '@/types';
 import { useState } from 'react';
@@ -18,7 +15,10 @@ interface IInput {
   isRequired?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
-  isSearchBar?: boolean; // nowy prop
+  isSearchBar?: boolean;
+  icon?: React.ReactNode;
+  disabled?: boolean;
+  isDeleteButton?: boolean; // NEW
 }
 
 export const Input = ({
@@ -26,14 +26,27 @@ export const Input = ({
   label,
   type = InputType.Text,
   placeholder,
-  isRequired,
   value,
-  className,
+  isRequired,
   onChange,
-  isSearchBar = false, // domyślnie false
+  className,
+  isSearchBar = false,
+  icon,
+  disabled,
+  isDeleteButton = false,
 }: IInput) => {
   const [showPassword, setShowPassword] = useState(false);
   const isPassword = type === 'password';
+  const showLeftIcon = isSearchBar || icon;
+  const showClearButton = isDeleteButton && value && value.length > 0;
+
+  const handleClear = () => {
+    if (onChange) {
+      onChange({
+        target: { value: '' },
+      } as React.ChangeEvent<HTMLInputElement>);
+    }
+  };
 
   return (
     <div className={cn('space-y-2', className)}>
@@ -41,23 +54,33 @@ export const Input = ({
         {label}
       </Label>
       <div className='relative'>
-        {isSearchBar && (
+        {icon && (
+          <div className='absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none'>
+            {icon}
+          </div>
+        )}
+        {isSearchBar && !icon && (
           <div className='absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-muted-foreground'>
             <Search size={18} />
           </div>
         )}
+
         <ShadcnInput
           id={id}
           type={isPassword ? (showPassword ? 'text' : 'password') : type}
           placeholder={placeholder}
           value={value}
           onChange={onChange}
+          disabled={disabled}
           className={cn(
-            'bg-white dark:bg-neutral-900 hover:bg-muted dark:hover:bg-neutral-800 transition-colors duration-400 ease-in-out',
-            isPassword && 'pr-10',
-            isSearchBar && 'pl-10' // przesunięcie tekstu w prawo, aby nie nachodził na ikonę
+            'bg-white dark:bg-neutral-900 transition-colors duration-400 ease-in-out',
+            !disabled && 'hover:bg-muted dark:hover:bg-neutral-800',
+            (isPassword || showClearButton) && 'pr-10',
+            showLeftIcon && 'pl-10',
+            disabled && 'opacity-60 cursor-not-allowed'
           )}
         />
+
         {isPassword && (
           <Button
             type='button'
@@ -65,8 +88,22 @@ export const Input = ({
             variant='ghost'
             size='icon'
             className='absolute right-2 top-1/2 -translate-y-1/2 h-6 w-6 p-0 text-muted-foreground'
+            disabled={disabled}
           >
             {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </Button>
+        )}
+
+        {showClearButton && (
+          <Button
+            type='button'
+            onClick={handleClear}
+            variant='ghost'
+            size='icon'
+            className='absolute right-2 top-1/2 -translate-y-1/2 h-6 w-6 p-0 text-muted-foreground'
+            disabled={disabled}
+          >
+            <X size={16} />
           </Button>
         )}
       </div>

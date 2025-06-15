@@ -25,28 +25,64 @@ export const Navbar = () => {
         CodeCareer
       </Link>
       <div className='flex gap-6 justify-center items-center'>
-        <Link
-          className='bg-gradient-to-r from-purple-600 to-blue-400 text-sm bg-clip-text text-transparent font-bold mr-2'
+        {/* <Link
+          className='bg-gradient-to-r from-purple-600 to-blue-400 text-sm bg-clip-text text-transparent font-bold mr-2 hover:scale-102 transition-transform'
           href={ROUTES.GENERAL.HOME}
         >
-          {t('jobOffers')}
-        </Link>
+          {t('jobOffersPanel')}
+        </Link> */}
+        <Button
+          onClick={() => router.push(ROUTES.GENERAL.HOME)}
+          variant='ghost'
+        >
+          <span className='bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent font-bold'>
+            {t('jobOffersPanel')}
+          </span>
+        </Button>
         {!isAuthenticated && <SignInDropdown />}
         {isAuthenticated && role === Role.EMPLOYER && (
           <div className='flex gap-4'>
+            {/* <Button
+              onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
+              className='bg-gradient-to-r from-purple-600 to-blue-400 hover:from-purple-700 hover:to-blue-500'
+            >
+              <span className='text-white'>{t('candidatesPanel')}</span>
+            </Button>
             <Button
               onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
-              variant='outline'
+              className='bg-gradient-to-r from-purple-600 to-blue-400 hover:from-purple-700 hover:to-blue-500'
             >
-              <span className='bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent font-bold'>
-                {t('postAJobOffer')}
-              </span>
+              <span className='text-white'>{t('postAJobOffer')}</span>
             </Button>
             <Button
               onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
               className='bg-gradient-to-r from-purple-600 to-blue-400 hover:from-purple-700 hover:to-blue-500'
             >
               <span className='text-white'>{t('myJobOffers')}</span>
+            </Button> */}
+            <Button
+              onClick={() => router.push(ROUTES.EMPLOYER.CANDIDATES_PANEL)}
+              variant='ghost'
+            >
+              <span className='bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent font-bold'>
+                {t('candidatesPanel')}
+              </span>
+            </Button>
+            <Button
+              onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
+              variant='ghost'
+            >
+              <span className='bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent font-bold'>
+                {t('postAJobOffer')}
+              </span>
+            </Button>
+            <Button
+              onClick={() => router.push(ROUTES.EMPLOYER.MY_JOB_OFFERS)}
+              variant='ghost'
+            >
+              <span className='bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent font-bold'>
+                {t('myJobOffers')}
+              </span>
             </Button>
           </div>
         )}
@@ -54,17 +90,9 @@ export const Navbar = () => {
           <div className='flex gap-4'>
             <Button
               onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
-              variant='outline'
-            >
-              <span className='bg-gradient-to-r from-purple-600 to-blue-400 bg-clip-text text-transparent font-bold'>
-                {t('postAJobOffer')}
-              </span>
-            </Button>
-            <Button
-              onClick={() => router.push(ROUTES.EMPLOYER.POST_A_JOB)}
               className='bg-gradient-to-r from-purple-600 to-blue-400 hover:from-purple-700 hover:to-blue-500'
             >
-              <span className='text-white'>{t('myJobOffers')}</span>
+              <span className='text-white'>{t('myApplications')}</span>
             </Button>
           </div>
         )}

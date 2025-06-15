@@ -91,7 +91,7 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
               <Wallet size={22} />
               <span>
                 {job.minSalary} - {job.maxSalary} {jobOfferLabels.currencyLabel}{' '}
-                (brutto)
+                {t('brutto')}
               </span>
             </div>
             <p className='text-sm text-white/80'>
@@ -101,15 +101,16 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
         </div>
 
         {/* === INFO CARDS === */}
+        {/* === INFO CARDS === */}
         <div className='relative z-10 mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4'>
           <div className='flex items-center gap-3 bg-pink-800/20 rounded-lg p-4'>
             <div className='bg-pink-500 text-white p-2 rounded-md'>
-              <span className='text-xl'>
-                <NotepadText />
-              </span>
+              <NotepadText className='text-xl' />
             </div>
             <div>
-              <p className='text-xs text-white/60'>Typ zatrudnienia</p>
+              <p className='text-xs text-white/60'>
+                {t('jobOffer.employmentType')}
+              </p>
               <p className='text-sm font-semibold text-white'>
                 {jobOfferLabels.contractTypeLabel}
               </p>
@@ -118,12 +119,12 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
 
           <div className='flex items-center gap-3 bg-purple-800/20 rounded-lg p-4'>
             <div className='bg-purple-600 text-white p-2 rounded-md'>
-              <span className='text-xl'>
-                <Star />
-              </span>
+              <Star className='text-xl' />
             </div>
             <div>
-              <p className='text-xs text-white/60'>Doświadczenie</p>
+              <p className='text-xs text-white/60'>
+                {t('jobOffer.experience')}
+              </p>
               <p className='text-sm font-semibold text-white'>
                 {jobOfferLabels.levelLabel}
               </p>
@@ -132,12 +133,12 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
 
           <div className='flex items-center gap-3 bg-sky-700/20 rounded-lg p-4'>
             <div className='bg-sky-500 text-white p-2 rounded-md'>
-              <span className='text-xl'>
-                <Gem />
-              </span>
+              <Gem className='text-xl' />
             </div>
             <div>
-              <p className='text-xs text-white/60'>Specjalizacja</p>
+              <p className='text-xs text-white/60'>
+                {t('jobOffer.specialization')}
+              </p>
               <p className='text-sm font-semibold text-white'>
                 {jobOfferLabels.specializationLabel}
               </p>
@@ -146,12 +147,10 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
 
           <div className='flex items-center gap-3 bg-blue-800/20 rounded-lg p-4'>
             <div className='bg-blue-600 text-white p-2 rounded-md'>
-              <span className='text-xl'>
-                <Pin />
-              </span>
+              <Pin className='text-xl' />
             </div>
             <div>
-              <p className='text-xs text-white/60'>Tryb pracy</p>
+              <p className='text-xs text-white/60'>{t('jobOffer.workMode')}</p>
               <p className='text-sm font-semibold text-white'>
                 {jobOfferLabels.workModeLabel}
               </p>
@@ -163,8 +162,9 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
       {/* === COMPANY DESCRIPTION === */}
       <section className='bg-neutral-200 dark:bg-neutral-800 p-6 rounded-xl shadow-md'>
         <h2 className='text-lg font-semibold mb-3 flex items-center gap-2 text-foreground'>
-          <Building2 size={20} /> O firmie
+          <Building2 size={20} /> {t('jobOffer.aboutCompany')}
         </h2>
+
         <p className='text-sm text-muted-foreground leading-relaxed'>
           TechNova to dynamiczny software house specjalizujący się w tworzeniu
           aplikacji mobilnych i webowych dla klientów na całym świecie.
@@ -177,8 +177,9 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
       {/* === TECH STACK === */}
       <section className='bg-neutral-200 dark:bg-neutral-800 p-6 rounded-xl shadow-md text-foreground'>
         <h2 className='text-lg font-semibold mb-5 flex items-center gap-2'>
-          <Code size={20} /> Stack technologiczny
+          <Code size={20} /> {t('jobOffer.techStack')}
         </h2>
+
         <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
           {jobOfferLabels.technologiesLevelsLabels.map(
             ({ technology }, idx) => {
@@ -205,7 +206,7 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
 
       <section className='bg-neutral-200 dark:bg-neutral-800 p-6 rounded-xl shadow-md text-foreground'>
         <h2 className='text-lg font-semibold mb-3 flex items-center gap-2'>
-          <Languages size={20} /> Języki obce
+          <Languages size={20} /> {t('jobOffer.foreignLanguages')}
         </h2>
         <ul className='list-disc list-inside text-sm text-muted-foreground space-y-1'>
           {jobOfferLabels.languageLevelLabels.map(
@@ -220,8 +221,9 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
 
       <section className='bg-neutral-200 dark:bg-neutral-800 p-6 rounded-xl shadow-md text-foreground '>
         <h2 className='text-lg font-semibold mb-3 flex items-center gap-2'>
-          <BriefcaseBusiness size={20} /> Opis stanowiska
+          <BriefcaseBusiness size={20} /> {t('jobOffer.positionDescription')}
         </h2>
+
         <p className='text-sm text-muted-foreground leading-relaxed mb-3'>
           W roli <strong>{job.jobTitle}</strong> będziesz odpowiedzialny/a za
           rozwój i utrzymanie nowoczesnych systemów opartych o mikroserwisy i
@@ -241,11 +243,10 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
             <div className='text-start mb-4 space-y-1'>
               <div className='text-lg font-bold text-neutral-900 dark:text-white flex justify-start items-center gap-2'>
                 <NotebookPen size={20} />
-                Aplikuj na to stanowisko
+                {t('jobOffer.applyToThisOffer')}
               </div>
-              <p className='text-sm text-muted-foreground'>
-                Wypełnij formularz, aby dołączyć do rekrutacji.
-              </p>
+
+              <p className='text-sm text-muted-foreground'></p>
             </div>
             <ApplyForJobForm />
           </section>
@@ -253,8 +254,8 @@ export const JobOfferLayout = ({ selectedJob, user }: IJobOfferLayout) => {
       ) : (
         <section className='relative z-10 mt-10 bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-xl shadow-lg px-6 py-6 flex justify-between'>
           <div className='flex align-middle items-center text-center space-y-2'>
-            <div className='text-lg font-bold text-white  flex items-center gap-2'>
-              Aby aplikować na oferty pracy, musisz być zalogowany w CodeCareer!
+            <div className='text-lg font-bold text-white flex items-center gap-2'>
+              {t('jobOffer.logInToApply')}
             </div>
           </div>
           <Link

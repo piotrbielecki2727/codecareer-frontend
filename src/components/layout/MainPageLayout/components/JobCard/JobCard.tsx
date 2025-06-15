@@ -104,7 +104,9 @@ export const JobCard = ({ jobOffer }: JobCardProps) => {
                   {jobOffer.jobTitle}
                 </span>
                 {jobOffer.isNew && (
-                  <Badge className='text-xs px-2 py-0.5 '>{t('new')}</Badge>
+                  <Badge className='text-xs px-2 py-0.5 text-accent-foreground bg-neutral-300 dark:bg-neutral-900 '>
+                    {t('new')}
+                  </Badge>
                 )}
               </div>
               <div className='flex items-center gap-4 text-sm text-muted-foreground flex-wrap'>
@@ -117,7 +119,7 @@ export const JobCard = ({ jobOffer }: JobCardProps) => {
                   <span className='text-xs'>{jobOffer.address}</span>
                 </div>
                 {workModeLabel && (
-                  <Badge className='text-xs px-2 py-0.5 bg-neutral-900 text-white'>
+                  <Badge className='text-xs px-2 py-0.5 text-accent-foreground bg-neutral-300 dark:bg-neutral-900'>
                     {workModeLabel}
                   </Badge>
                 )}

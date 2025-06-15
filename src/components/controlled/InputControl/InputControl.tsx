@@ -1,13 +1,10 @@
-//core
 import {
   FieldPath,
   FieldValues,
   useController,
   UseControllerProps,
 } from 'react-hook-form';
-//components
 import { Input } from '@/components/ui';
-//other
 import { InputType } from '@/types';
 
 type InputControlProps<TFieldValues extends FieldValues> = {
@@ -15,6 +12,8 @@ type InputControlProps<TFieldValues extends FieldValues> = {
   placeholder?: string;
   isRequired?: boolean;
   type?: InputType;
+  icon?: React.ReactNode; // NEW PROP\
+  disabled?: boolean;
 } & UseControllerProps<TFieldValues, FieldPath<TFieldValues>>;
 
 export const InputControl = <TFieldValues extends FieldValues>({
@@ -25,6 +24,8 @@ export const InputControl = <TFieldValues extends FieldValues>({
   label,
   placeholder,
   type = InputType.Text,
+  icon,
+  disabled,
 }: InputControlProps<TFieldValues>) => {
   const {
     field: { onChange, value },
@@ -41,6 +42,8 @@ export const InputControl = <TFieldValues extends FieldValues>({
         placeholder={placeholder}
         value={value}
         onChange={onChange}
+        disabled={disabled}
+        icon={icon} // pass to Input
       />
       {error && (
         <p className='text-sm text-red-500 mt-1 sticky'>{error.message}</p>
